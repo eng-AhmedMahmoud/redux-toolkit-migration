@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Company } from "@/lib/meta";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -18,19 +19,33 @@ export function Footer() {
         </p>
         {Company.branding !== false && (
           <div className="text-center hidden md:block">
-            <Link 
-              className="font-semibold" 
-              href="https://www.rubixstudios.com.au"
+            <div className="flex justify-center space-x-4 hidden md:flex">
+            <Link
+              href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
             >
-              <Image
-                src="/logo.svg"
-                alt="Rubix Studios Logo"
-                width={30}
-                height={30}
-              />
+              <Github size={24} />
+              <span className="sr-only">GitHub</span>
             </Link>
+            <Link
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+            >
+              <Linkedin size={24} />
+              <span className="sr-only">LinkedIn</span>
+            </Link>
+            <Link
+              href="mailto:your.email@example.com"
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+            >
+              <Mail size={24} />
+              <span className="sr-only">Email</span>
+            </Link>
+          </div>
           </div>
         )}
       </div>

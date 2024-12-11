@@ -5,11 +5,6 @@ export const Navigations = [
     title: "Docs",
     href: `/docs${PageRoutes[0].href}`,
   },
-  // {
-  //   title: "Home",
-  //   href: "https://www.rubixstudios.com.au/",
-  //   external: true,
-  // }
 ];
 
 export const GitHubLink = {
