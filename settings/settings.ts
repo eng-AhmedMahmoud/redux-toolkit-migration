@@ -1,5 +1,6 @@
 export const url = "https://redux-toolkit-migeration.vercel.app/";
-export const siteicon = "/images/icon.png";
+export const siteicon = "/images/iconLight.png";
+export const siteiconDark = "/images/iconDark.png";
 
 export const gtm = "GTM-XXXXXXX";
 export const gtmconnected = true;
@@ -9,7 +10,7 @@ export const description = "This comprehensive documentation template, crafted w
 export const keywords = ["Next.js", "documentation", "Redux Toolkit Migeration", "open source", "SEO"];
 export const urlimage = "/images/og-image.png";
 export const imagealt = "Redux Toolkit Migeration Documentation";
-export const twitterhandle = "@RubixStudios";
+export const twitterhandle = "@JScodingMaster";
 
 export const companyname = "Ahmed Mahmoud";
 export const companylink = "https://work-portfolio-blond.vercel.app/";

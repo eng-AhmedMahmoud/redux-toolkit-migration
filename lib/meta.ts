@@ -1,6 +1,6 @@
 import { OpenGraph, TwitterCard } from "@/lib/metadata";
 import { 
-  gtm, gtmconnected, url, sitename, description, keywords, siteicon, urlimage, imagealt, 
+  gtm, gtmconnected, url, sitename, description, keywords, siteicon, siteiconDark, urlimage, imagealt, 
   twitterhandle, companyname, companylink, branding, rightsidebar, feedbackedit, 
   tableofcontent, totopscroll, loadfromgithub 
 } from "@/settings/settings";
@@ -24,6 +24,7 @@ export const Settings = {
   metadataBase: url,
   description: description,
   siteicon: siteicon,
+  siteiconDark: siteiconDark,
   keywords: keywords,
   openGraph: {
     type: "website",
