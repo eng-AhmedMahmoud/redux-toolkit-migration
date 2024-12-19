@@ -7,16 +7,16 @@ export const Documents: Paths[] = [
     heading: "Getting started",
     items: [
       {
-        title: "Installation",
-        href: "/installation",
+        title: "Base Knowledge",
+        href: "/base-knowledge",
       },
       {
-        title: "Setup",
-        href: "/setup",
+        title: "Steps of Migration",
+        href: "/migration-steps",
       },
       {
-        title: "Changelog",
-        href: "/changelog",
+        title: "Structure Overview",
+        href: "/structure-overview",
       },
     ],
   },
@@ -24,70 +24,51 @@ export const Documents: Paths[] = [
     spacer: true,
   },
   {
-    title: "Navigation",
-    href: "/navigation",
-    heading: "Documents",
-  },
-  {
-    title: "Structure",
-    href: "/structure",
+    title: "Hands on VVL",
+    href: "/hands-on-vvl",
+    heading: "Implementation",
     items: [
       {
-        title: "Deeper",
-        href: "/deeper",
-        items : [
+        title: "API Migration",
+        href: "/api-migration",
+        items: [
           {
-            title: "Even deeper",
-            href: "/even-deeper",
+            title: "Forming the API",
+            href: "/forming-the-api",
           },
-        ]
-      },
-    ],
-  },
-  {
-    spacer: true,
-  },
-  {
-    title: "Markup",
-    href: "/markup",
-    heading: "Components",
-    items: [
-      {
-        title: "Cards",
-        href: "/cards",
+          {
+            title: "Using the API",
+            href: "/using-the-api",
+          },
+        ],
       },
       {
-        title: "Diagrams",
-        href: "/diagrams",
+        title: "Saga to Listeners",
+        href: "/saga-to-listeners",
       },
       {
-        title: "Filetree",
-        href: "/filetree",
+        title: "Updating the Selectors",
+        href: "/updating-selectors",
       },
       {
-        title: "Lists",
-        href: "/lists",
+        title: "Components Separation",
+        href: "/components-separation",
+        items: [
+          {
+            title: "Standalone Component",
+            href: "/standalone-component",
+          },
+          {
+            title: "Shared Components",
+            href: "/shared-components",
+          },
+        ],
       },
       {
-        title: "Maths",
-        href: "/maths",
-      },
-      {
-        title: "Notes",
-        href: "/notes",
-      },
-      {
-        title: "Steps",
-        href: "/steps",
-      },
-      {
-        title: "Table",
-        href: "/table",
-      },
-      {
-        title: "Tabs",
-        href: "/tabs",
+        title: "Code Testing",
+        href: "/code-testing",
       },
     ],
   },
 ];
+

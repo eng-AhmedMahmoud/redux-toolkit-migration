@@ -6,14 +6,14 @@ export const gtm = "GTM-XXXXXXX";
 export const gtmconnected = true;
 
 export const sitename = "Redux Toolkit Migration";
-export const description = "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.";
-export const keywords = ["Next.js", "documentation", "Redux Toolkit Migeration", "open source", "SEO"];
+export const description = "This comprehensive documentation website, crafted with Next.js, delivers a sleek and responsive design, to effectively communicate the migration steps from redux-saga to redux-toolkit";
+export const keywords = ["Next.js", "documentation", "Redux Toolkit Migration", "open source", "SEO"];
 export const urlimage = "/images/og-image.png";
 export const imagealt = "Redux Toolkit Migeration Documentation";
 export const twitterhandle = "@JScodingMaster";
 
 export const companyname = "Ahmed Mahmoud";
-export const companylink = "https://work-portfolio-blond.vercel.app/";
+export const companylink = "https://eng-ahmedmahmoud-portfolio.vercel.app/";
 
 export const branding = true;
 export const rightsidebar = true;
