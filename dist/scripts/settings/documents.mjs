@@ -63,7 +63,7 @@ export const Documents = [
                 ],
             },
             {
-                title: "Code Testing",
+                title: "Code Reviewing & Testing",
                 href: "/code-testing",
             },
         ],

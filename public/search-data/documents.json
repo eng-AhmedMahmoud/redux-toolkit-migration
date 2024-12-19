@@ -79,7 +79,7 @@
     },
     {
         "slug": "/hands-on-vvl/code-testing",
-        "title": "Code Testing",
+        "title": "Code Reviewing & Testing",
         "description": "Testing strategies for Redux Toolkit implementation",
         "content": "This section covers testing strategies for your newly migrated Redux Toolkit code, including both unit testing and integration testing approaches."
     }

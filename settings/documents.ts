@@ -65,7 +65,7 @@ export const Documents: Paths[] = [
         ],
       },
       {
-        title: "Code Testing",
+        title: "Code Reviewing & Testing",
         href: "/code-testing",
       },
     ],
