@@ -1,0 +1,11 @@
+extends templates/layout/main
+
+block variables
+    - var pageTitle = 'VVL Tarifauswahl mit Sartphone'
+
+block appContent
+    include templates/partials/textHeader
+    include templates/partials/notificationForError
+    include templates/partials/integrationLayer
+block additionalPageOptions
+    include templates/partials/additionalPageOptions

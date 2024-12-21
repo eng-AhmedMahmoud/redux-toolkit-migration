@@ -1,0 +1,32 @@
+{
+    "status": 200,
+    "success": true,
+    "error": [],
+    "data": {
+        "accounttype": "I",
+        "customersegment": "S",
+        "namedetails": {
+            "title": "Dr.",
+            "salutation": "Herr",
+            "firstname": "Max",
+            "lastname1": "Mustermann",
+            "lastname2": "string",
+            "lastname3": "string"
+        },
+        "addressdetails": {
+            "street": "Musterstrasse",
+            "streetno": "2a",
+            "zipcode": "40549",
+            "city": "Musterstadt",
+            "country": "Deutschland"
+        },
+        "customerflags": {
+            "isredpluscustomer": false,
+            "isyoungcustomer": false,
+            "isfriendsandfamilycustomer": false,
+            "iswinbackcustomer": false,
+            "isblacktariffcustomer": true,
+            "isSohoCustomer": false
+        }
+    }
+}

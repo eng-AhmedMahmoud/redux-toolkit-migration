@@ -1,0 +1,13 @@
+{
+    "status": 200,
+    "success": true,
+    "error": [],
+    "data": {
+        "eligible": true,
+        "numberOfExistingMembers": 0,
+        "isPartOfGroup": false,
+        "vacantslots": 5,
+        "memberType": "O",
+        "hasOwnerTariff": true
+    }
+}

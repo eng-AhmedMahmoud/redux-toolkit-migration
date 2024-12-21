@@ -1,0 +1,32 @@
+/* stylelint-disable selector-max-id */
+$core-styles-in-project: true;
+
+@import '~@vfde-brix/ws10/styles/scss/main';
+@import '~@vfde-brix/ws10/belt-container/belt-container';
+@import '~@vfde-brix/ws10/grid/grid';
+@import '~@vfde-brix/ws10/system-icon/system-icon';
+@import '@vfde-brix/ws10/image/image';
+@import '@vfde-brix/ws10/headline/headline';
+@import '@vfde-brix/ws10/overlay/overlay';
+@import '@vfde-brix/ws10/button-icon-only/button-icon-only';
+@import '@vfde-brix/ws10/promotional-card/promotional-card';
+@import '@vfde-brix/ws10/flag-badge/flag-badge';
+@import '~@vfde-brix/ws10/notification/notification';
+@import '~@vfde-brix/ws10/notification-icon/notification-icon';
+@import '@vfde-brix/ws10/button-link/button-link';
+@import '@vfde-brix/ws10/image-header/image-header';
+
+#vvl-hardware-details-promotional-card-wrapper .ws10-promotional-card {
+    margin-bottom: $space-150;
+}
+
+.mod-glnav {
+    margin-bottom: $zero;
+    padding-bottom: $zero;
+}
+
+#gigakombi-info {
+    img {
+        object-fit: cover;
+    }
+}

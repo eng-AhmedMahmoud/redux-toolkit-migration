@@ -1,0 +1,2931 @@
+{
+    "status": 200,
+    "body": {
+        "capacities": [
+            {
+                "addon": false,
+                "default": true,
+                "oneTimePrice": {
+                    "gross": 1,
+                    "net": 0.84
+                },
+                "size": "128 GB",
+                "sortSize": 128,
+                "totalPrice": {
+                    "gross": 899.9,
+                    "net": 756.22
+                }
+            },
+            {
+                "addon": true,
+                "default": false,
+                "oneTimePrice": {
+                    "gross": 139.9,
+                    "net": 117.56
+                },
+                "size": "256 GB",
+                "sortSize": 256,
+                "totalPrice": {
+                    "gross": 1039.9,
+                    "net": 873.87
+                }
+            },
+            {
+                "addon": false,
+                "default": false,
+                "oneTimePrice": {
+                    "gross": 349.9,
+                    "net": 294.03
+                },
+                "size": "512 GB",
+                "sortSize": 512,
+                "totalPrice": {
+                    "gross": 1249.9,
+                    "net": 1050.34
+                }
+            }
+        ],
+        "colors": [
+            {
+                "capacities": [
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6794,
+                        "atomicName": "iPhone 13 Ros\u0026#233; (128 GB)",
+                        "backendId": "302402",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Ros\u0026#233; (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-rose-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 1,
+                            "net": 0.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Ros\u0026#233;"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 899.9,
+                            "net": 756.22
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6958,
+                        "atomicName": "iPhone 13 Ros\u0026#233; (128 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909111",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Ros\u0026#233; (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-rose-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 21,
+                            "net": 17.65
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Ros\u0026#233;"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 919.9,
+                            "net": 773.03
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6796,
+                        "atomicName": "iPhone 13 Ros\u0026#233; (512 GB)",
+                        "backendId": "302412",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Ros\u0026#233; (512 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-rose-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 349.9,
+                            "net": 294.03
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "512 GB",
+                        "sortSize": 512,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Ros\u0026#233;"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "512 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1249.9,
+                            "net": 1050.34
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6957,
+                        "atomicName": "iPhone 13 Ros\u0026#233; (512 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909121",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Ros\u0026#233; (512 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-rose-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-rose-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 369.9,
+                            "net": 310.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "512 GB",
+                        "sortSize": 512,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Ros\u0026#233;"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "512 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1269.9,
+                            "net": 1067.14
+                        }
+                    }
+                ],
+                "name": "Rosé",
+                "rgb": "251,226,221"
+            },
+            {
+                "capacities": [
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6788,
+                        "atomicName": "iPhone 13 (PRODUCT) RED (128 GB)",
+                        "backendId": "302403",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 (PRODUCT) RED (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-rot-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-rot-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-rot-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 1,
+                            "net": 0.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "(PRODUCT) RED"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 899.9,
+                            "net": 756.22
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6952,
+                        "atomicName": "iPhone 13 (PRODUCT) RED (128 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909112",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 (PRODUCT) RED (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-rot-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-rot-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-rot-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 21,
+                            "net": 17.65
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "(PRODUCT) RED"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 919.9,
+                            "net": 773.03
+                        }
+                    }
+                ],
+                "name": "(PRODUCT) RED",
+                "rgb": "200,35,51"
+            },
+            {
+                "capacities": [
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6310,
+                        "atomicName": "iPhone 13 Blau (128 GB)",
+                        "backendId": "302404",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Blau (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-blau-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 1,
+                            "net": 0.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Blau"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 899.9,
+                            "net": 756.22
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6946,
+                        "atomicName": "iPhone 13 Blau (128 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909113",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Blau (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-blau-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 21,
+                            "net": 17.65
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Blau"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 919.9,
+                            "net": 773.03
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6300,
+                        "atomicName": "iPhone 13 Blau (256 GB)",
+                        "backendId": "302409",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Blau (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-blau-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 119.9,
+                            "net": 100.76
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Blau"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1019.9,
+                            "net": 857.06
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6947,
+                        "atomicName": "iPhone 13 Blau (256 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909118",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Blau (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-blau-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-blau-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 139.9,
+                            "net": 117.56
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Blau"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1039.9,
+                            "net": 873.87
+                        }
+                    }
+                ],
+                "name": "Blau",
+                "rgb": "68,119,146"
+            },
+            {
+                "capacities": [
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 7302,
+                        "atomicName": "iPhone 13 Gr\u0026#252;n (128 GB)",
+                        "backendId": "302636",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Gr\u0026#252;n (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-gruen-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 1,
+                            "net": 0.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Gr\u0026#252;n"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 899.9,
+                            "net": 756.22
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 7305,
+                        "atomicName": "iPhone 13 Gr\u0026#252;n (128 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909179",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Gr\u0026#252;n (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-gruen-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 21,
+                            "net": 17.65
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Gr\u0026#252;n"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 919.9,
+                            "net": 773.03
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 7306,
+                        "atomicName": "iPhone 13 Gr\u0026#252;n (256 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909180",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Gr\u0026#252;n (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-gruen-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 139.9,
+                            "net": 117.56
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Gr\u0026#252;n"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1039.9,
+                            "net": 873.87
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 7303,
+                        "atomicName": "iPhone 13 Gr\u0026#252;n (256 GB)",
+                        "backendId": "302637",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Gr\u0026#252;n (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-gruen-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-gruen-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 119.9,
+                            "net": 100.76
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Gr\u0026#252;n"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1019.9,
+                            "net": 857.06
+                        }
+                    }
+                ],
+                "name": "Grün",
+                "rgb": "60,78,60"
+            },
+            {
+                "capacities": [
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6791,
+                        "atomicName": "iPhone 13 Mitternacht (128 GB)",
+                        "backendId": "302400",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Mitternacht (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 1,
+                            "net": 0.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Mitternacht"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 899.9,
+                            "net": 756.22
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6955,
+                        "atomicName": "iPhone 13 Mitternacht (128 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909109",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Mitternacht (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 21,
+                            "net": 17.65
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Mitternacht"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 919.9,
+                            "net": 773.03
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6792,
+                        "atomicName": "iPhone 13 Mitternacht (256 GB)",
+                        "backendId": "302405",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Mitternacht (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 119.9,
+                            "net": 100.76
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Mitternacht"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1019.9,
+                            "net": 857.06
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6956,
+                        "atomicName": "iPhone 13 Mitternacht (256 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909114",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Mitternacht (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 139.9,
+                            "net": 117.56
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Mitternacht"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1039.9,
+                            "net": 873.87
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6793,
+                        "atomicName": "iPhone 13 Mitternacht (512 GB)",
+                        "backendId": "302410",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Mitternacht (512 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 349.9,
+                            "net": 294.03
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "512 GB",
+                        "sortSize": 512,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 349.9,
+                                    "net": 294.03
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Mitternacht"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "512 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1249.9,
+                            "net": 1050.34
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6954,
+                        "atomicName": "iPhone 13 Mitternacht (512 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909119",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Mitternacht (512 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-mitternacht-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 369.9,
+                            "net": 310.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "512 GB",
+                        "sortSize": 512,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 369.9,
+                                    "net": 310.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Mitternacht"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "512 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1269.9,
+                            "net": 1067.14
+                        }
+                    }
+                ],
+                "name": "Mitternacht",
+                "rgb": "66,71,77"
+            },
+            {
+                "capacities": [
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6961,
+                        "atomicName": "iPhone 13 Polarstern (128 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909110",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Polarstern (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 21,
+                            "net": 17.65
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 21,
+                                    "net": 17.65
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Polarstern"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 919.9,
+                            "net": 773.03
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6797,
+                        "atomicName": "iPhone 13 Polarstern (128 GB)",
+                        "backendId": "302401",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Polarstern (128 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 1,
+                            "net": 0.84
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "128 GB",
+                        "sortSize": 128,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 1,
+                                    "net": 0.84
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Polarstern"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "128 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 899.9,
+                            "net": 756.22
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": false,
+                            "name": "ohne Apple USB-C Power Adapter",
+                            "price": 0
+                        },
+                        "atomicId": 6798,
+                        "atomicName": "iPhone 13 Polarstern (256 GB)",
+                        "backendId": "302406",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "iPhone 13 Polarstern (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 119.9,
+                            "net": 100.76
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 119.9,
+                                    "net": 100.76
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Polarstern"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1019.9,
+                            "net": 857.06
+                        }
+                    },
+                    {
+                        "addon": {
+                            "available": true,
+                            "name": "mit Apple 20W USB-C Power Adapter",
+                            "price": 20
+                        },
+                        "atomicId": 6962,
+                        "atomicName": "iPhone 13 Polarstern (256 GB) \u0026amp; Power Adapter",
+                        "backendId": "9909115",
+                        "cellular": "5GPlus",
+                        "deliveryScope": [
+                            "Apple USB-C Power Adapter 20W",
+                            "iPhone 13 Polarstern (256 GB)",
+                            "Hinweis: F\u0026#252;r das iPhone steht unser Handy-Austausch-Service (Bereitstellung eines Austauschger\u0026#228;ts innerhalb von 48 Stunden) derzeit nicht zur Verf\u0026#252;gung.",
+                            "USB-C auf Lightning Kabel",
+                            "Dokumentation"
+                        ],
+                        "hwOnlyShippingDate": "Lieferung ca. KW3",
+                        "images": [
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-pa-288x320-01.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-pa-288x320-02.png",
+                            "/media/img/products/NSF-288x320/iphone13-polarstern-pa-288x320-03.png"
+                        ],
+                        "oneTimePrice": {
+                            "gross": 139.9,
+                            "net": 117.56
+                        },
+                        "shippingDate": "Lieferung ca. KW3",
+                        "size": "256 GB",
+                        "sortSize": 256,
+                        "subscription": [
+                            {
+                                "groupId": 2505,
+                                "id": 2534,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 109.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2503,
+                                "id": 2520,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 79.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2502,
+                                "id": 2515,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 69.99,
+                                    "net": 30
+                                }
+                            },
+                            {
+                                "groupId": 2501,
+                                "id": 2509,
+                                "oneTimePrice": {
+                                    "gross": 139.9,
+                                    "net": 117.56
+                                },
+                                "tariffPrice": {
+                                    "gross": 49.99,
+                                    "net": 20
+                                }
+                            }
+                        ],
+                        "technicalDetails": [
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Farbe",
+                                        "value": "Polarstern"
+                                    }
+                                ],
+                                "id": 2,
+                                "section": "Infos zum Ger\u0026#228;t"
+                            },
+                            {
+                                "attributes": [
+                                    {
+                                        "attribute": "Interner Speicher bis zu",
+                                        "value": "256 GB"
+                                    }
+                                ],
+                                "id": 15,
+                                "section": "Speicher"
+                            }
+                        ],
+                        "totalPrice": {
+                            "gross": 1039.9,
+                            "net": 873.87
+                        }
+                    }
+                ],
+                "name": "Polarstern",
+                "rgb": "251,247,244"
+            }
+        ],
+        "insurance": {
+            "id": "158",
+            "name": "Smartphone- \u0026amp; Tablet-Versicherung",
+            "price": {
+                "gross": 9.99,
+                "net": 0
+            }
+        },
+        "name": "iPhone 13",
+        "subscription": [
+            {
+                "cheapest": false,
+                "dataPush": false,
+                "dataVolume": {
+                    "amount": 5,
+                    "label": "5 GB",
+                    "unit": "GB"
+                },
+                "discounts": {},
+                "groupId": 2501,
+                "monetary": false,
+                "name": "GigaMobil XS",
+                "oneTimeFee": {
+                    "gross": 0,
+                    "net": 0
+                },
+                "unlimited": false
+            },
+            {
+                "cheapest": false,
+                "dataPush": [
+                    {
+                        "amount": 15,
+                        "label": "15 GB",
+                        "runTimeEnd": 24,
+                        "runTimeStart": 1,
+                        "unit": "GB"
+                    }
+                ],
+                "dataVolume": {
+                    "amount": 12,
+                    "label": "12 GB",
+                    "unit": "GB"
+                },
+                "discounts": {},
+                "groupId": 2502,
+                "monetary": false,
+                "name": "GigaMobil S",
+                "oneTimeFee": {
+                    "gross": 0,
+                    "net": 0
+                },
+                "unlimited": false
+            },
+            {
+                "cheapest": false,
+                "dataPush": [
+                    {
+                        "amount": 30,
+                        "label": "30 GB",
+                        "runTimeEnd": 24,
+                        "runTimeStart": 1,
+                        "unit": "GB"
+                    }
+                ],
+                "dataVolume": {
+                    "amount": 25,
+                    "label": "25 GB",
+                    "unit": "GB"
+                },
+                "discounts": {},
+                "groupId": 2503,
+                "monetary": false,
+                "name": "GigaMobil M",
+                "oneTimeFee": {
+                    "gross": 0,
+                    "net": 0
+                },
+                "unlimited": false
+            },
+            {
+                "cheapest": true,
+                "dataPush": false,
+                "dataVolume": {
+                    "amount": 0,
+                    "label": "unbegrenzten GB",
+                    "unit": "GB"
+                },
+                "discounts": {},
+                "groupId": 2505,
+                "monetary": false,
+                "name": "GigaMobil XL",
+                "oneTimeFee": {
+                    "gross": 0,
+                    "net": 0
+                },
+                "unlimited": true
+            }
+        ],
+        "technicalDetails": [
+            {
+                "attributes": [
+                    {
+                        "attribute": "Abmessungen",
+                        "value": "146,7 x 71,5 x 7,65 mm"
+                    },
+                    {
+                        "attribute": "Gewicht",
+                        "value": "173 g"
+                    },
+                    {
+                        "attribute": "Betriebssystem",
+                        "value": "iOS"
+                    },
+                    {
+                        "attribute": "Musikwiedergabe bis zu",
+                        "value": "75 h"
+                    },
+                    {
+                        "attribute": "Videowiedergabe bis zu",
+                        "value": "19 h"
+                    },
+                    {
+                        "attribute": "Gesichtserkennung",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Wasserabweisend",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Stereolautsprecher",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Prozessor",
+                        "value": "A15 Bionic Chip"
+                    }
+                ],
+                "id": 2,
+                "section": "Infos zum Ger\u0026#228;t"
+            },
+            {
+                "attributes": [
+                    {
+                        "attribute": "Display-Diagonale in Zoll (Inch)",
+                        "value": "6,1 Zoll"
+                    },
+                    {
+                        "attribute": "Display-Diagonale",
+                        "value": "15,49 cm"
+                    },
+                    {
+                        "attribute": "Aufl\u0026#246;sung",
+                        "value": "2532 x 1170 Pixel"
+                    }
+                ],
+                "id": 6,
+                "section": "Display"
+            },
+            {
+                "attributes": [
+                    {
+                        "attribute": "Hauptkamera",
+                        "value": "12 Megapixel"
+                    },
+                    {
+                        "attribute": "Videoaufl\u0026#246;sung",
+                        "value": "(4K) 3840 x 2160 Pixel"
+                    },
+                    {
+                        "attribute": "Frontkamera",
+                        "value": "12 Megapixel"
+                    },
+                    {
+                        "attribute": "Videoaufl\u0026#246;sung Frontkamera",
+                        "value": "(Full HD) 1920 x 1080 Pixel"
+                    },
+                    {
+                        "attribute": "FaceTime",
+                        "value": "ja"
+                    }
+                ],
+                "id": 5,
+                "section": "Kamera"
+            },
+            {
+                "attributes": [
+                    {
+                        "attribute": "Speicher erweiterbar",
+                        "value": "nein"
+                    }
+                ],
+                "id": 15,
+                "section": "Speicher"
+            },
+            {
+                "attributes": [
+                    {
+                        "attribute": "Anzahl SIM-Karten",
+                        "value": "2 (Dual-SIM)"
+                    },
+                    {
+                        "attribute": "SIM-Kartentyp",
+                        "value": "eSIM (SUCI), Nano-SIM (SUCI)"
+                    }
+                ],
+                "id": 25,
+                "section": "SIM-Karte"
+            },
+            {
+                "attributes": [
+                    {
+                        "attribute": "Giga 5G+",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "5G",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "4G/LTE",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "VoLTE",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "WiFi Calling",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "WLAN",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "GPS-Empf\u0026#228;nger",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Bluetooth-Version",
+                        "value": "5.0"
+                    },
+                    {
+                        "attribute": "NFC",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Qi-Standard (kabelloses Laden)",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "USB-Anschluss (Lightning)",
+                        "value": "ja"
+                    }
+                ],
+                "id": 8,
+                "section": "Konnektivit\u0026#228;t"
+            },
+            {
+                "attributes": [
+                    {
+                        "attribute": "Touchscreen",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Sprachbefehle",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Sprachwahl",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Diktierfunktion",
+                        "value": "ja"
+                    },
+                    {
+                        "attribute": "Freisprechfunktion",
+                        "value": "ja"
+                    }
+                ],
+                "id": 3,
+                "section": "Bedienung"
+            }
+        ],
+        "vendor": "Apple"
+    }
+}

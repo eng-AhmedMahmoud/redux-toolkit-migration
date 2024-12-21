@@ -1,0 +1,358 @@
+script.
+    var additionalPageOptions = {
+    "promos":{
+        "tradeIn":{
+                "suggestInputLabel": 'Tipp hier Dein Modell ein',
+                "suggestInputPlaceholder": 'Tipp hier Dein Smartphone-Modell ein',
+                "deviceNotFoundText": 'Wir konnten das Modell leider nicht finden.',
+                "technicalErrorText": 'Technischer Fehler: Bitte versuch es später nochmal!',
+                "itemSummaryCardSubline": 'F&uuml;r Dein Smartphone: <strong>Einmal bis zu {{ maxPrice }}. </strong>Je nach Zustand.',
+        },
+        "tauschbonus": {
+                "tauschbonusSubline": 'Tauschbonus: <b>{{ tauschbonusValue }} € Rabatt pro Monat.</b> 12 Monate lang. Gilt ab dem Verkauf Deines alten Handys.',
+        }
+    },
+    "promotionalSummaryCard": {
+        "offerPriceInfo": "Du sparst <strong>jeden Monat {{savedMoneyAmount}} ? </strong>"
+    },
+    "pageName": "produktdetails",
+    "mTanPageUrl": "//www.vodafone.de/shop/authentifizierung.html?btype=vvl",
+    "dopPageUrl": "/privat/vertragsverlaengerung/vvl-alle-smartphones.html",
+    "optionPicker": {
+        "tariffInfo": "{{dataWithdiscountData}} <br> statt {{dataWithoutDiscount}}",
+        "unlimitedTariffInfo": "Unbegrenzt",
+        "subscriptionIds": {
+                "consumer": [133,134,135,136,137],
+                "young": [138, 139, 140,141, 142],
+                "default": {
+                    "consumer": 135,
+                "young": 140
+            }
+        },
+        "defaultSubscriptionIds": {
+            "gigaMobil": "135",
+            "gigaMobilYoung": "140"
+        },
+        "colorTitle": "Farbe:",
+        "capacityTitle": "Speichergr&ouml;&szlig;e:",
+        "tariffTitle": "Datenvolumen:"
+    },
+    "pibs": {
+        "133": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-xs-februar-2024.pdf",
+        "134": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-s-februar-2024.pdf",
+        "135": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-m-februar-2024.pdf",
+        "136": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-l-februar-2024.pdf",
+        "137": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-xl-februar-2024.pdf",
+        "139": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-young-s-februar-2024.pdf",
+        "140": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-young-m-februar-2024.pdf",
+        "141": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-young-l-februar-2024.pdf",
+        "142": "https://www.vodafone.de/media/downloads/pdf/vf-gigamobil-young-xl-februar-2024.pdf"
+    },
+    "promotionalCard": {
+        "133": [
+            {
+                "stdId": "gigamobile-xs-promo",
+                "stdLabel": "Hol Dir doppeltes Datenvolumen",
+                "stdIcon": "idea",
+                "txtSublabel": "Ab dem GigaMobil S verdoppeln wir Dir Dein Datenvolumen.<sup>4</sup>",
+                "flagBadge": {
+                    "stdLabel": "Info",
+                    "optColor": "yellow"
+                }
+            }
+        ],
+        "134": [
+            {
+                "stdId": "gigamobile-s-promo",
+                "stdLabel": "Doppeltes Datenvolumen",
+                "stdIcon": "unlocked-rewards",
+                "txtSublabel": "Im GigaMobil S bekommst Du 24 statt 12 GB.<sup>4</sup>"
+            }
+        ],
+        "135": [
+            {
+                "stdId": "gigamobile-m-promo",
+                "stdLabel": "225 GB extra Datenvolumen",
+                "stdIcon": "unlocked-rewards",
+                "txtSublabel": "Im GigaMobil M bekommst Du jeden Monat 250 statt 25 GB.<sup>4</sup>",
+                "shouldBeHiddenWith": [
+                    "gigaKombi-ip",
+                    "gigaKombi-iptv",
+                    "gigaKombi-br5"
+                ]
+            },
+            {
+                "stdId": "gigamobile-m-promo-1",
+                "stdLabel": "225 GB extra Datenvolumen",
+                "stdIcon": "unlocked-rewards",
+                "txtSublabel": "Im GigaMobil M bekommst Du jeden Monat 250 statt 25 GB.<sup>4</sup>",
+                "shouldBeHiddenWith": [
+                    "gigaKombi-ip",
+                    "gigaKombi-iptv",
+                    "gigaKombi-br5"
+                ]
+            }
+        ],
+        "136": [
+            {
+                "stdId": "gigamobile-l-promo",
+                "stdLabel": "250 GB extra Datenvolumen",
+                "stdIcon": "unlocked-rewards",
+                "txtSublabel": "Im GigaMobil L bekommst Du jeden Monat 300 statt 50 GB.<sup>4</sup>",
+                "shouldBeHiddenWith": [
+                    "gigaKombi-ip",
+                    "gigaKombi-iptv",
+                    "gigaKombi-br5"
+                ]
+            }
+        ],
+        "139": [
+            {
+                "stdId": "gigamobile-young-s-promo",
+                "stdLabel": "5 GB extra",
+                "stdIcon": "unlocked-rewards",
+                "txtSublabel": "Im GigaMobil Young S bekommst Du 15 statt 10 GB.<sup>4</sup>"
+            }
+        ],
+        "140": [
+            {
+                "stdId": "gigamobile-young-m-promo",
+                "stdLabel": "Doppeltes Datenvolumen",
+                "stdIcon": "unlocked-rewards",
+                "txtSublabel": "Im GigaMobil Young M bekommst Du 60 statt 30 GB.<sup>4</sup>"
+            }
+        ],
+        "141": [
+            {
+                "stdId": "gigamobile-young-l-promo",
+                "stdLabel": "250 GB extra Datenvolumen",
+                "stdIcon": "unlocked-rewards",
+                "txtSublabel": "Im GigaMobil Young L bekommst Du jeden Monat 300 statt 50 GB.<sup>4</sup>"
+            }
+        ],
+        "56120": {
+            "young": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "samsung-s24",
+                    "stdLabel": "Dein neues Galaxy S24 ab 1&nbsp;&euro;. Passt? Deal!",
+                    "stdIcon": "auto-topup",
+                    "txtSublabel": "<p>Du bekommst das neue S24 für nur einmal 1&nbsp;&euro; &ndash; ab dem Tarif GigaMobil Young&nbsp;L.<sup>4</sup></p>"
+                }
+            ],
+            "consumer": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "samsung-s24",
+                    "stdLabel": "Dein neues Galaxy S24 ab 1&nbsp;&euro;. Passt? Deal!",
+                    "stdIcon": "auto-topup",
+                    "txtSublabel": "<p>Du bekommst das neue S24 für nur einmal 1&nbsp;&euro; &ndash; ab dem Tarif GigaMobil&nbsp;M.<sup>4</sup></p>"
+                }
+            ]
+        },
+        "97": {
+            "device": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "samsung-a55-buds",
+                    "stdLabel": "Kostenlos dazu: Galaxy Buds FE in Graphite<sup>4</sup>",
+                    "stdIcon": "accessories",
+                    "txtSublabel": "<p>Mehr Infos</p>"
+                }
+            ],
+            "young": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "samsung-a55",
+                    "stdLabel": "Dein neues Galaxy A55 ab 1&nbsp;&euro;. Passt? Deal!",
+                    "stdIcon": "auto-topup",
+                    "txtSublabel": "<p>Du bekommst das Galaxy A55 für nur einmal 1&nbsp;&euro;.<sup>4</sup></p>"
+                }
+            ],
+            "consumer": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "samsung-a55",
+                    "stdLabel": "Dein neues Galaxy A55 ab 1&nbsp;&euro;. Passt? Deal!",
+                    "stdIcon": "auto-topup",
+                    "txtSublabel": "<p>Du bekommst das Galaxy A55 für nur einmal 1&nbsp;&euro;.<sup>4</sup></p>"
+                }
+            ]
+        },
+        "54": {
+            "device": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "samsung-a55-buds",
+                    "stdLabel": "Kostenlos dazu: Airpods Pro in Graphite<sup>4</sup>",
+                    "stdIcon": "accessories",
+                    "txtSublabel": "<p>Mehr Infos</p>"
+                }
+            ],
+            "young": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "iphone-15-pro-max-young",
+                    "stdLabel": "Dein neues iPhone 15 Pro Max ab 1&nbsp;&euro;. Passt? Deal!",
+                    "stdIcon": "auto-topup",
+                    "txtSublabel": "<p>Du bekommst das iPhone 15 Pro Max für nur einmal 1&nbsp;&euro;.<sup>4</sup></p>"
+                }
+            ],
+            "consumer": [
+                {
+                    "flagBadge": {
+                        "stdLabel": "<strong>Nur bis 1. Mai</strong>",
+                        "optColor": "green"
+                    },
+                    "stdId": "iphone-15-pro-max-consumer",
+                    "stdLabel": "Dein neues iPhone 15 Pro Max ab 1&nbsp;&euro;. Passt? Deal!",
+                    "stdIcon": "auto-topup",
+                    "txtSublabel": "<p>Du bekommst das iPhone 15 Pro Max für nur einmal 1&nbsp;&euro;.<sup>4</sup></p>"
+                },
+                {
+                    "stdId": "iphone-15-pro-consumer-2",
+                    "stdLabel": "Lorem ipsum dolor sit iPhone 15 Pro Max Lorem ipsum dolor sit",
+                    "stdIcon": "auto-topup",
+                    "txtSublabel": "<p>Lorem ipsum dolor sit iPhone 15 Pro Max Lorem ipsum dolor sit",
+                    "checkbox": {
+                                "txtLabelText": '<p>Lorem ipsum dolor sit</p>',
+                                "stdValue": 'checkbox-value',
+                                "spacing": '0',
+                                "stdConfirmationText": 'Promotion activated',
+                    },
+                }
+            ]
+        },
+        "gigaKombiOffer": {
+            "stdId": "gigaKombi-{{gkCase}}",
+            "stdIcon": "unlocked-rewards",
+            "stdLabel": "GigaKombi-Vorteil",
+            "txtSublabelOffer": "{{offerPrice}} &euro; Rabatt pro Monat und {{extraGB}} GB Extra-Datenvolumen.<sup>4</sup>",
+            "txtSublabelUnlimitedOffer": "{{offerPrice}} &euro; Rabatt pro Monat und unbegrenztes Datenvolumen.",
+            "txtSublabelPriceOffer": "{{offerPrice}} &euro; Rabatt pro Monat",
+            "shouldBeHiddenWith": {
+                "ip": [
+                    "gigamobile-m-promo",
+                    "gigamobile-l-promo"
+                ],
+                "iptv": [
+                    "gigamobile-m-promo",
+                    "gigamobile-l-promo"
+                ],
+                "tv": [],
+                "br5": []
+            }
+        },
+        "tradeInPromotionalCard": {
+            "stdId": "tradeIn-tauschbonus",
+            "stdIcon": "tick",
+            "stdLabel": "Du hast die Inzahlungnahme aktiviert",
+            "txtSublabel": "Für Dein altes Smartphone bekommst Du eine <strong>einmalige Gutschrift.</strong>",
+            "txtSublabelTauschbonus": "Für Dein altes Smartphone bekommst Du eine <strong>einmalige Gutschrift.</strong> Und dazu den Tauschbonus: <strong>{{tauschbonusAmount}} &euro; Rabatt pro Monat.</strong> 12 Monate lang. Gilt ab dem Verkauf Deines alten Handys.",
+        }
+    },
+    "offerSummaryCard": {
+        "highlightBadges": {
+            "134": {
+                "color": "burgundy",
+                "text": "<p>Doppeltes Datenvolumen</p>"
+            },
+            "135": {
+                "color": "burgundy",
+                "text": "<p>225 GB extra</p>"
+            },
+            "136": {
+                "color": "burgundy",
+                "text": "<p>250 GB extra</p>"
+            },
+            "139": {
+                "color": "burgundy",
+                "text": "<p>5 GB extra</p>"
+            },
+            "140": {
+                "color": "burgundy",
+                "text": "<p>Doppeltes Datenvolumen</p>"
+            },
+            "141": {
+                "color": "burgundy",
+                "text": "<p>250 GB extra</p>"
+            }
+        },
+        "tariffInfoPattern": "{{name}} mit {{amount}}",
+        "deviceInfoPattern": "{{deviceName}}",
+        "stairwayTextPattern": "Ab dem {{month}}. Monat",
+        "noOneTimeFeeText": "Kein Anschlusspreis. 24 Monate Vertragslaufzeit.",
+        "legalTextPattern": "Dazu einmal {{oneTimeFee}} &euro; Anschlusspreis.",
+        "basketButtonText": "Direkt zum Warenkorb",
+        "extrasButtonUrl": "/privat/handys-tablets-tarife/mobilfunk-tarife-extras.html",
+        "extrasButtonText": "Weiter mit diesem Angebot",
+        "familyCardLink": "/privat/vertragsverlaengerung/vvl-zusatzkarte.html",
+        "simOnlyFooterLink": "<a href='/privat/vertragsverlaengerung/funnelpage.html' class='ws10-text-link'>Oder Vertragsverl&auml;ngerung ohne Smartphone?</a>",
+    },
+    "technicalDetails": {
+        "headline": "Lieferumfang",
+        "icons": {
+            "2": "mobile-info",
+            "3": "touch-screen",
+            "5": "camera",
+            "6": "screen-size",
+            "8": "connectivity",
+            "9": "",
+            "11": "entertainment",
+            "15": "e-sim",
+            "25": "sim"
+        }
+    },
+    "ecoLabel": {
+        "text": "(Mehr Infos)",
+        "link": "/unternehmen/soziale-verantwortung/eco-rating.html",
+        "key": "Nachhaltigkeit"
+    },
+    "vlux": {
+        "attributeIds": {
+            "deliveryScope": "scopeOfDelivery"
+        },
+        "attributeGroupIds": {
+            "characteristics": "1",
+            "top": "2",
+            "display": "6",
+            "camera": "5",
+            "memory": "15",
+            "sim": "25",
+            "connectivity": "8",
+            "entertainment": "11",
+            "handling": "3",
+            "organizer": "9"
+        },
+        "attributeValues": {
+            "yes": 'ja',
+            "no": 'nein',
+        },
+    },
+    "gigaKombiNotification": {
+        'br5': 'Deinen GigaKombi-Rabatt über 10 € schreiben wir Dir hier gut. Deinen zusätzlichen TV-Rabatt über 5 € findest Du auf Deiner Festnetz-Rechnung. ',
+        'tv': 'Dein TV-Vertrag ist leider nicht mehr GigaKombi-berechtigt. Du bekommst deshalb bei Deiner Vertragsverlängerung keinen Rabatt von 5 € mehr.',
+        'iptv': 'Weil Du auch Internet für zuhause bei uns hast, bekommst Du weiter Deinen GigaKombi-Rabatt von 10 € pro Monat. Dein TV-Vertrag ist leider nicht mehr GigaKombi-berechtigt. Du bekommst deshalb bei Deiner Vertragsverlängerung keinen zusätzlichen Rabatt von 5 € mehr.',
+    },
+ }
