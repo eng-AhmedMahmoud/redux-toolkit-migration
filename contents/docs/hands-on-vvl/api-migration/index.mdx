@@ -1,95 +1,179 @@
 ---
-title: Introduction
-description: This section provides an overview of Introduction.
+title: API Migration Guide
+description: A comprehensive guide for migrating to the new API implementation
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste dolorum tempore consectetur explicabo tempora provident quia maxime, molestiae, facilis aperiam et, error illum vel ullam? Quis architecto dolore ullam
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+This guide covers the migration process to the new API implementation, focusing on two main aspects:
+<br/><br/> 1 -> forming the API <br/>  2 -> using it in your application.
 
-| Syntax        | Description |   Test Text |
-| :------------ | :---------: | ----------: |
-| Header        |    Title    | Here's this |
-| Paragraph     |    Text     |    And more |
-| Strikethrough |             |    ~~Text~~ |
+## Forming the API
 
-## Getting Started
-
-To begin using the Documentation Template, follow these simple steps:
-
-- Start by cloning the repository to your local machine.
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quae iure nulla deserunt dolore quam pariatur minus sapiente accusantium. Optio, necessitatibus sequi. Veritatis, aspernatur? Possimus quis repellat eum vitae eveniet.
-
-## Blockquotes
-
-Blockquotes are useful for emphasizing key points or quoting external sources:
-
-> "Documentation is a love letter that you write to your future self." - Damian Conway
-
-Feel free to use blockquotes to highlight important information or quotes relevant to your documentation.
-
-## Code Examples with switch
-
-Here a custom tab component from shadcn ui is used.
-
-<Tabs defaultValue="js">
+<Tabs defaultValue="old" className="pt-5 pb-1">
   <TabsList>
-    <TabsTrigger value="js">layout.jsx</TabsTrigger>
-    <TabsTrigger value="ts">layout.tsx</TabsTrigger>
+    <TabsTrigger value="old">Previous Implementation</TabsTrigger>
+    <TabsTrigger value="new">New Implementation (glados.ts)</TabsTrigger>
   </TabsList>
-  <TabsContent value="js">
-  ```jsx {7} showLineNumbers
-import ThemeProvider from './theme-provider'
- 
-export default function RootLayout({ children }) {
-  return (
-    <html>
-      <body className="container">
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  )}
-````
+  <TabsContent value="old">
+```typescript
+// Previous API implementation will be compared here
+```
   </TabsContent>
-  <TabsContent value="ts">
-```tsx {11} showLineNumbers
-import ThemeProvider from './theme-provider'
- 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html>
-      <body className="container">
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  )
-}
+  <TabsContent value="new">
+```typescript
+// New glados.ts implementation will be added here
 ```
   </TabsContent>
 </Tabs>
 
-## Conclusion
+## Using the API
 
-Thank you for choosing the Documentation Template for your project. Whether you're documenting software, APIs, or processes, we're here to support you in creating clear and effective documentation. Happy documenting!
+### In Selectors
 
-## Tabs Example
+The new API can be used with selectors to dynamically update state. Here's how to implement selectors with the API:
 
-<Tabs defaultValue="tab1">
+<Tabs defaultValue="selector" className="pt-5 pb-1">
   <TabsList>
-    <TabsTrigger value="tab1">Tab 1</TabsTrigger>
-    <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+    <TabsTrigger value="selector">Selector Implementation</TabsTrigger>
   </TabsList>
-  <TabsContent value="tab1">
-    <p>This is content for Tab 1.</p>
+  <TabsContent value="selector">
+```typescript
+const createHardwareDetailGroupSelector = createAppSelector(
+  [
+    state => state.vvlDeviceDetailsApp.salesChannel,
+  ],
+  salesChannel => getHardwareDetailGroup.select({ 
+    salesChannel: salesChannel!, 
+  }),
+);
+
+const selectHardwareDetailGroupQuery = createAppSelector(
+  [
+    state => state,
+    createHardwareDetailGroupSelector,
+  ],
+  (state, selector) => selector(state),
+);
+
+const selectDevice = createAppSelector(
+  [
+    selectHardwareDetailGroupQuery,
+  ],
+  query => query?.data || null,
+);
+
+const selectOptionsLoadingFlag = createAppSelector(
+  [
+    selectHardwareDetailGroupQuery,
+  ],
+  state => state.isLoading,
+);
+
+const selectOptionsErrorsFlag = createAppSelector(
+  [
+    selectHardwareDetailGroupQuery,
+  ],
+  state => state.isError,
+);
+
+const selectDeviceName = createAppSelector(
+  [selectDevice],
+  (device: HardwareDetailGroupResponse | null): string | null => 
+    device?.data.modelName || null,
+);
+```
   </TabsContent>
-  <TabsContent value="tab2">
-    <p>This is content for Tab 2.</p>
+ 
+</Tabs>
+
+### In Listeners
+
+Listeners are used to perform side effects in response to API actions:
+
+<Tabs defaultValue="listeners" className="pt-5 pb-1">
+  <TabsList>
+    <TabsTrigger value="listeners">Listener Implementation</TabsTrigger>
+  </TabsList>
+  <TabsContent value="listeners">
+```typescript
+setDefaultState: () => startAppListening({
+  actionCreator: setDefaultState,
+  effect: (_action, listenerApi) => {
+    const state = listenerApi.getState();
+    const deviceId = selectDeviceId(state);
+    const salesChannel = selectSalesChannel(state) as SalesChannel;
+    
+    deviceId 
+      ? listenerApi.dispatch(getHardwareDetailGroup.initiate({ salesChannel }))
+      : redirectToDop();
+  },
+}),
+
+getDeviceFulfilled: () => startAppListening({
+  matcher: getHardwareDetailGroup.matchFulfilled,
+  effect: (_action, listenerApi) => {
+    const state = listenerApi.getState();
+    const atomicId = selectAtomicId(state);
+    listenerApi.dispatch(setAtomicId({ atomicId }));
+    
+    const salesChannel = selectSalesChannel(state) as SalesChannel;
+    const isTradeIn = selectIsTradeIn(state);
+    const devicePayload = _action.payload;
+    
+    listenerApi.dispatch(setDevicePayload(devicePayload));
+    listenerApi.dispatch(getTariffWithHardware.initiate({ 
+      salesChannel, 
+      isTradeIn 
+    }));
+  },
+}),
+```
+  </TabsContent>
+</Tabs>
+
+### In Extra Reducers
+
+Extra reducers can be used to handle asynchronous logic without using createAsyncThunk:
+
+<Tabs defaultValue="reducers" className="pt-5 pb-1">
+  <TabsList>
+    <TabsTrigger value="reducers">Extra Reducers Implementation</TabsTrigger>
+    <TabsTrigger value="explanation">Explanation</TabsTrigger>
+  </TabsList>
+  <TabsContent value="reducers">
+```typescript
+extraReducers: builder => {
+  builder
+    .addMatcher(
+      getHardwareDetailGroup.matchFulfilled,
+      (state, action) => {
+        const { atomics } = action.payload.data;
+        
+        if (
+          !state.atomicId || 
+          !atomics.some(atomic => atomic.hardwareId === state.atomicId)
+        ) {
+          const defaultAtomic = atomics.find(
+            atomic => atomic.defaultAtomicDevice
+          );
+          state.atomicId = defaultAtomic?.hardwareId || null;
+        }
+        
+        const currentAtomic = atomics.find(
+          item => item.hardwareId === state.atomicId
+        );
+        state.currentColor = currentAtomic?.color || null;
+        state.currentCapacity = currentAtomic?.capacity || null;
+      },
+    )
+}
+```
+  </TabsContent>
+  <TabsContent value="explanation">
+This extra reducer handles the successful completion of the `getHardwareDetailGroup` action by:
+1. Checking if the current atomicId is valid
+2. Setting a default atomic device if needed
+3. Updating the current color and capacity based on the selected atomic device
   </TabsContent>
 </Tabs>

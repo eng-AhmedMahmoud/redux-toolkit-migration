@@ -31,16 +31,6 @@ export const Documents: Paths[] = [
       {
         title: "API Migration",
         href: "/api-migration",
-        items: [
-          {
-            title: "Forming the API",
-            href: "/forming-the-api",
-          },
-          {
-            title: "Using the API",
-            href: "/using-the-api",
-          },
-        ],
       },
       {
         title: "Saga to Listeners",

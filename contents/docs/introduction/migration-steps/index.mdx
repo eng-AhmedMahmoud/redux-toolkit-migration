@@ -1,167 +1,78 @@
 ---
-title: Installation
-description: This guide covers the installation of Documents and how to edit your new project.
-keywords: ["installation", "github", "node", "guide", "nextjs", "documents"]
+title: Steps of Migration
+description: A comprehensive overview of the migration process from Redux Saga to Redux Toolkit in the sails-vvl-device-details-app.
+keywords: ["redux saga", "redux toolkit", "migration", "steps", "process"]
 ---
 
-To install and edit the Documents, you need to have several prerequisites in place. Here's a list of all the essential pre-requisites 
-for setting up and working on this project.
+# Steps of Migration
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frubixvi%2Frubix-documents&project-name=my-documents&repository-name=my-documents&demo-title=Documents&demo-description=This%20Document%20Starter%20Kit%20is%20developed%20with%20Next.js%2C%20Tailwind%20CSS%20and%20TypeScript.%20It%20serves%20as%20a%20flexible%20and%20scalable%20foundation%20for%20building%20documentation%20websites%20or%20content-driven%20projects.&demo-url=https%3A%2F%2Frubix-documents.vercel.app%2F&demo-image=https%3A%2F%2Fgithub.com%2Frubixvi%2Frubix-documents%2Fblob%2Fmain%2Fpublic%2Fscreens%2Fscreen-1.png)
+This page outlines the step-by-step process we followed to migrate our application from Redux Saga to Redux Toolkit. Each step is crucial in ensuring a smooth transition and maintaining the functionality of our app while leveraging the benefits of Redux Toolkit.
 
-## Prerequisites
-
-<Step>
-<StepItem title="System Requirements">
-
-  - **Node.js:** Make sure you have Node.js installed. The project uses `npm`, which comes with Node.js. Install Node.js from here.
-  - **NPM or Yarn:** Since the project uses `npm` commands, ensure that npm is installed with Node.js. Alternatively, you can use Yarn if preferred.
-
-To verify installation, run:
-
-  ```bash
-  node -v
-  npm -v
-  ```
-
-</StepItem>
-<StepItem title="Git">
-You need to have Git installed to clone the repository. Download Git from [here](https://git-scm.com/).
-
-  ```bash
-  git --version
-  ```
-
-</StepItem>
-<StepItem title="Code Editor">
-You’ll need a code editor to work on the project. Common options include:
-
-  - [Visual Studio Code](https://code.visualstudio.com/)
-  - [WebStorm](https://www.jetbrains.com/webstorm/)
-  - Any other text editor you prefer.
-
-</StepItem>
-<StepItem title="Required Knowledge">
-- **Next.js:** Since this is a Next.js project, you should be familiar with Next.js basics.
-- **React:** The project uses React, so understanding React's component structure and hooks will help.
-- **TypeScript:** The project is written in TypeScript, so you should have a basic understanding of it.
-- **Tailwind:** The project uses Tailwind CSS for styling.
-- **MDX:** Markdown + JSX (MDX) is used for writing documentation.
-
-</StepItem>
-</Step>
-
-## Installation
-
-<Step>
-<StepItem title="Clone the Repository">
-First, clone the repository to your local machine using Git:
-
-  ```bash
-  git clone https://github.com/rubixvi/rubix-documents.git
-  ```
-
-Change the directory to the project folder:
-
-  ```bash
-  cd rubix-documents
-  ```
-
-</StepItem>
-<StepItem title="Install Dependencies">
-Use npm to install all the required dependencies:
-
-  ```bash
-  npm install
-  ```
-
-This will install all the dependencies listed in the package.json file, including:
-
-  - Next.js
-  - React
-  - TypeScript
-  - Tailwind CSS
-  - MDX components
-  - Other dependencies like ESLint, PostCSS, Husky, etc.
-
-</StepItem>
-
-<StepItem title="Running the Development Server">
-Start the development server by running:
-
-  ```bash
-  npm run dev
-  ```
-
-This will start the local server, and you can open your browser at:
-
-  ```arduino
-  http://localhost:3000
-  ```
-
-</StepItem>
-
-<StepItem title="Editing the Project">
-  - **MDX Files:** Documentation content is stored in `contents/docs`.
-  - **Components:** You can edit React components in the `components/` directory.
-  - **Tailwind:** Tailwind styling are managed in `tailwind.config.ts` and `app/globals.css`.
-
-To make any changes to the project, open the files in your editor and modify them as needed.
-
-
-<Note title="Required" type="danger">
-  The project's search functionality relies on the Husky's automation to build `search-data/documents.json` ensure git commit is performed to generate this file.
+<Note title="Detailed Explanations">
+  Each step mentioned here will be explained in detail in later sections, with code examples and best practices.
 </Note>
 
+## Migration Process Overview
 
-</StepItem>
-<StepItem title="Building for Production">
-Once you’ve made your changes and want to build the project for production:
-
-  ```bash
-  npm run build
-  ```
-
-This will generate a production-ready build of the app.
-
-</StepItem>
-<StepItem title="Running Production Server">
-To run the production server:
-
-  ```bash
-  npm run start
-  ```
-
-The production app will be available at:
-
-  ```arduino
-  http://localhost:3000
-  ```
-
-</StepItem>
-</Step>
-
-## Optional
 <Step>
-<StepItem title="Deploying to Vercel">
-This project is optimized for Vercel deployment. To deploy to Vercel:
-
-  - Go to [vercel.com](https://vercel.com/) and sign up.
-  - Link your GitHub repository and deploy the project.
-  - Vercel will handle the build process for you automatically.
-
-The production app will be available at:
-
-  ```bash
-  http://localhost:3000
-  ```
-
-</StepItem>
-<StepItem title="Linting and Pre-commit Hooks">
-The project uses ESLint for linting and Husky for Git hooks. These tools are configured automatically, but you can customize them in `.eslintrc.json` and `.husky` directories.
-</StepItem>
+  <StepItem title="API Migration">
+    We started by migrating our API calls, creating the Glados API and the Tradein API using Redux Toolkit's `createApi`.
+  </StepItem>
+  <StepItem title="Implementing the APIs">
+    We replaced the old Saga-based API calls with the new Redux Toolkit APIs, utilizing `extraReducers` to handle asynchronous operations in the slice.
+  </StepItem>
+  <StepItem title="Saga to Listeners Transformation">
+    We converted our Redux Saga effects to Redux Toolkit listeners to manage side effects.
+  </StepItem>
+  <StepItem title="Selector Updates">
+    We updated our selectors to use the new `createAppSelector` for improved performance and memoization.
+  </StepItem>
+  <StepItem title="Component Structure Refactoring">
+    We agreed on a new component structure, focusing on clarity, intuitiveness, and separation of concerns.
+  </StepItem>
+  <StepItem title="Testing">
+    We implemented comprehensive testing for helpers, slices, listeners, and selectors.
+  </StepItem>
+  <StepItem title="Integration Testing">
+    We ensured that Cypress tests were functioning without errors.
+  </StepItem>
+  <StepItem title="Code Review and Iteration">
+    We conducted multiple rounds of code review to refine and optimize our migrated codebase.
+  </StepItem>
 </Step>
 
-## Important Information
+## Detailed Migration Checklist
 
-The project's search functionality relies on the Husky's automation to build `search-data/documents.json` ensure git commit is performed to generate this file.
+<CardGrid>
+  <Card title="API Migration" icon="code" variant="small">
+    <ul>
+      <li>Create Glados API</li>
+      <li>Create Tradein API</li>
+      <li>Implement RTK Query</li>
+    </ul>
+  </Card>
+  <Card title="Saga to Listeners" icon="arrowRightLeft" variant="small">
+    <ul>
+      <li>Convert Saga effects</li>
+      <li>Implement listeners</li>
+      <li>Handle side effects</li>
+    </ul>
+  </Card>
+  <Card title="State Management" icon="layers" variant="small">
+    <ul>
+      <li>Update selectors</li>
+      <li>Implement createAppSelector</li>
+      <li>Optimize state structure</li>
+    </ul>
+  </Card>
+</CardGrid>
+
+Each step in this migration process plays a crucial role in transitioning from Redux Saga to Redux Toolkit. In the following sections, we'll dive deep into each of these steps, providing detailed explanations, code examples, and best practices to guide you through your own migration process.
+## Additional Resources
+
+1. [Redux Toolkit KT](https://vodafone-my.sharepoint.com/personal/eman_mohamed7_vodafone_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Feman%5Fmohamed7%5Fvodafone%5Fcom%2FDocuments%2FRecordings%2FRedux%20Toolkit%20KT%2D20241124%5F130232%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Ecff32109%2D12b2%2D43b9%2Da74e%2D7b1fb6d29ab9)
+2. [Redux Toolkit in Action](https://vodafone-my.sharepoint.com/personal/mayada_ghanem_vodafone_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fmayada%5Fghanem%5Fvodafone%5Fcom%2FDocuments%2FRecordings%2FReduxToolkit%2D20241104%5F150308%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2E38fac959%2Dfe7d%2D423b%2Dab63%2D200d0a318119)
+
+For a deeper understanding of Redux Toolkit and its implementation, we recommend these resources as it provides valuable insights and practical examples to help you master Redux Toolkit  created with love by Kilo team ❤️.
+
+

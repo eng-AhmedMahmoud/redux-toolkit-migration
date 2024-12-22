@@ -1,78 +1,160 @@
 ---
-title: Setup
-description: Setting up and configuring your documentation project
-keywords: ["setup", "configuration", "layout", "Google", "SEO", "nextjs", "documents"]
+title: Structure Overview
+description: Comparison between Redux Saga and Redux Toolkit code structures in the sails-vvl-device-details-app
+keywords: ["redux", "structure", "migration", "organization"]
 ---
 
-Setting up your new documentation project is straightforward. Most of the essential project settings can be configured within the `settings` folder.
+## Code Structure Comparison
 
-## Settings
+This section compares the code structure before and after migrating from Redux Saga to Redux Toolkit. Understanding these structural changes is crucial for a successful migration.
 
-This section provides the core settings for your documentation site, such as defining the site's URL, site icon and title.
+### Original Redux Saga Structure
 
-  ```tsx showLineNumbers
-  export const url = ""; // The URL for your documentation site
-  export const siteicon = ""; // Icon displayed next to the site name in the header
-  export const sitename = ""; // Title of your documentation site
-  ```
+<FileTree>
+    <Folder name="app" label="App Directory">
+        <Folder name="components" label="Reusable Components" />
+        <Folder name="container" label="Container">
+            <Folder name="App" label="Main App Container">
+                <Folder name="_tests_" label="Tests" />
+                <Folder name="helpers" label="Helper Functions" />
+                <Folder name="interfaces" label="TypeScript Interfaces" />
+                <File name="constants.ts" label="Constants" />
+                <File name="index.ts" label="Index File" />
+                <File name="saga.ts" label="Redux Saga File" />
+                <File name="selectors.ts" label="State Selectors" />
+                <File name="slice.ts" label="Redux Slice" />
+                <File name="style.scss" label="Styles" />
+            </Folder>
+            <Folder name="Options" label="Options Feature" />
+            <Folder name="Overlay" label="Overlay Feature" />
+            <Folder name="Tariff" label="Tariff Feature" />
+            <Folder name="TradeIn" label="TradeIn Feature" />
+        </Folder>
+        <Folder name="fixtures" label="Test Fixtures" />
+        <Folder name="helpers" label="Global Helpers" />
+        <Folder name="mock" label="Mock Data" />
+        <Folder name="pages" label="App Pages HTML" />
+        <File name="constants.ts" label="Global Constants" />
+        <File name="index.ts" label="App Global Index File" />
+        <File name="style.scss" label="Global Styles" />
+    </Folder>
+</FileTree>
 
-## Google Tags
+### New Redux Toolkit Structure
 
-This section allows you to integrate Google Tag Manager into your documentation project. You can add your GTM code and configure whether it's connected.
+<FileTree>
+    <Folder name="src" label="Src Directory">
+        <Folder name="api" label="Global API Directory">
+            <Folder name="_tests_" label="API Tests" />
+            <File name="glados.ts" label="Glados API Configuration" />
+            <File name="tradein.ts" label="TradeIn API Configuration" />
+            <File name="interface.ts" label="Global Interfaces" />
+        </Folder>
+        <Folder name="app" label="Global App Directory">
+            <File name="constants.ts" label="Global Constants" />
+            <File name="createAppSelector.ts" label="Selector Creator" />
+            <File name="createAppSlice.ts" label="Slice Creator" />
+            <File name="listener.ts" label="Listeners Setup" />
+            <File name="store.ts" label="Redux Store Configuration" />
+        </Folder>
+        <Folder name="components" label="Shared Components" />
+        <Folder name="features" label="Feature Modules">
+            <Folder name="App" label="Main App Feature">
+                <Folder name="_tests_" label="Feature Tests" />
+                <Folder name="components" label="Feature Components" />
+                <Folder name="helpers" label="Feature Helpers" />
+                <Folder name="interfaces" label="Feature Interfaces" />
+                <File name="constants.ts" label="Feature Constants" />
+                <File name="index.ts" label="Feature Index File" />
+                <File name="listeners.ts" label="Feature Listeners" />
+                <File name="selectors.ts" label="Feature Selectors" />
+                <File name="slice.ts" label="Feature Slice" />
+                <File name="style.scss" label="Feature Styles" />
+            </Folder>
+            <Folder name="Options" label="Options Feature" />
+            <Folder name="Overlay" label="Overlay Feature" />
+            <Folder name="Tariff" label="Tariff Feature" />
+            <Folder name="TradeIn" label="TradeIn Feature" />
+        </Folder>
+        <Folder name="helpers" label="Global Helpers" />
+        <Folder name="pages" label="Src Pages HTML" />
+        <Folder name="interfaces" label="Global Interfaces" />
+        <File name="index.ts" label="Src Global Index File" />
+        <File name="style.scss" label="Global Styles" />
+    </Folder>
+</FileTree>
 
-  ```tsx showLineNumbers
-  export const gtm = ""; // Add your Google Tag Manager code here
-  export const gtmconnected = true; // Set to true if GTM is connected, otherwise set to false
-  ```
+## Key Structural Changes
 
-## Search Engine
+<Note title="API Organization" type="info">
+    API configurations are now centralized at the src level, making them easier
+    to maintain and reuse across features.
+</Note>
 
-Configure essential SEO settings to ensure your documentation site is optimized for search engines. This includes meta descriptions, keywords and social media sharing details like images and alt text.
+| Aspect               | Redux Saga Structure   | Redux Toolkit Structure           |
+| -------------------- | ---------------------- | --------------------------------- |
+| API Configuration    | Scattered across sagas | Centralized in src directory      |
+| State Management     | Shattered in the index  | Separated into every component           |
+| Side Effects         | Saga files             | Listener files                    |
+| Selectors            | Direct selectors       | Created via createAppSelector     |
+| Feature Organization | Flat structure         | Hierarchical with features folder |
 
-  ```tsx showLineNumbers
-  export const description = ""; // Description of your documentation site for SEO
-  export const keywords = ["", ""]; // List of SEO keywords for your documentation site
-  export const urlimage = ""; // The URL of the image used when sharing on social media)
-  export const imagealt = ""; // Alt text for shared images, helpful for screen readers
-  export const twitterhandle = ""; // Your company’s Twitter handle for social sharing
-  ```
+## Data Flow Changes
 
-## Footer Branding
+<div className="flex gab-4">
+<Mermaid
+    chart={`
+graph TD
+    subgraph "Redux Saga Flow"
+    A1[Component] -->|Dispatch| B1[Action]
+    B1 -->|Intercepted by| C1[Saga Middleware]
+    C1 -->|Handles| D1[Side Effects]
+    D1 -->|Updates| E1[Store]
+    E1 -->|Notifies| A1
+    end
+`}
+/>
 
-The footer settings allow you to customize the company information displayed at the bottom of the site. You can add the company name and the URL that the name will link to.
+<Mermaid
+    chart={`
+graph TD
+    subgraph "Redux Toolkit Flow"
+    A2[Component] -->|Dispatch| B2[Action]
+    B2 -->|Handled by| C2[Slice/ExtraReducers]
+    C2 -->|Or Intercepted by| D2[Listeners]
+    D2 -->|Updates| E2[Store]
+    E2 -->|Notifies| A2
+    end
+`}
+/>
+</div>
 
-  ```tsx showLineNumbers
-  export const companyname = ""; // The company name displayed in the copyright section
-  export const companylink = ""; // The URL your company name should link to
-  ```
+## Benefits of the New Structure
 
-## General Layout
+<Step>
+    <StepItem title="Better Organization">
+        Clear separation between app-level and feature-level code, making the
+        codebase more maintainable.
+    </StepItem>
+    <StepItem title="Centralized API Management">
+        API configurations are now in one place, making them easier to maintain
+        and update.
+    </StepItem>
+    <StepItem title="Improved Testing Structure">
+        Tests are organized alongside their respective features, promoting
+        better test coverage.
+    </StepItem>
+    <StepItem title="Enhanced Type Safety">
+        Better TypeScript integration with centralized interfaces and type
+        definitions.
+    </StepItem>
+</Step>
 
-The layout settings control the appearance and functionality of various elements of the documentation site, such as branding, the right sidebar, feedback options, table of contents, and scroll-to-top functionality.
+## Migration Considerations
 
-  ```tsx showLineNumbers
-  export const branding = true; // Set to true to display our branding elements
-  export const rightsidebar = true; // Set to true to enable the right sidebar with feedback, table of contents and scroll-to-top
-  export const feedbackedit = true; // Control to enable/disable feedback on GitHub
-  export const tableofcontent = true; // Control to enable/disable the generated table of contents
-  export const totopscroll = true; // Control to enable/disable scroll-to-top button
-  ```
+<Note title="Important" type="warning">
+    When migrating to the new structure: - Move API configurations to a separate isolated api folder - Reorganize features into the features directory - Convert sagas to
+    listeners - Update selector implementations to use createAppSelector
+</Note>
 
-## Github Control
-
-If your MDX files are hosted on GitHub, you can configure the project to load documents directly from there. This option can be useful for syncing documentation updates directly with your repository.
-
-  ```tsx showLineNumbers
-  export const loadfromgithub = false; // Set to true to load your MDX documents directly from GitHub
-  ```
-
-## Project Structure
-<CardGrid>
-  <Card
-    title="Navigation"
-    href="/docs/navigation"
-    icon="alignJustify"
-    variant="small"
-    description="Creating your navigation"
-  />
-</CardGrid>
+The new structure promotes better code organization, maintainability, and scalability. It separates concerns more effectively and makes the codebase easier to navigate and understand.

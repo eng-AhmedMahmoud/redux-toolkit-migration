@@ -36,18 +36,6 @@
         "content": "Learn how to migrate your API calls from Redux Saga to Redux Toolkit's createAsyncThunk."
     },
     {
-        "slug": "/hands-on-vvl/api-migration/forming-the-api",
-        "title": "Forming the API",
-        "description": "Creating API slices with Redux Toolkit",
-        "content": "Understand how to create API slices using Redux Toolkit's createApi function."
-    },
-    {
-        "slug": "/hands-on-vvl/api-migration/using-the-api",
-        "title": "Using the API",
-        "description": "Implementing the new API in your components",
-        "content": "Learn how to use the newly created API slices in your React components."
-    },
-    {
         "slug": "/hands-on-vvl/saga-to-listeners",
         "title": "Saga to Listeners",
         "description": "Converting Redux Saga effects to Redux Toolkit listeners",

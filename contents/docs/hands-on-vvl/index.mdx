@@ -1,80 +1,125 @@
 ---
-title: Structure
-description: This section provides an overview of Introduction.
+title: Hands on VVL
+description: Introduction to the VVL Device Details migration project and the team behind it
+keywords: ["redux toolkit", "migration", "team", "e-shop", "vvl"]
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste dolorum tempore consectetur explicabo tempora provident quia maxime, molestiae, facilis aperiam et, error illum vel ullam? Quis architecto dolore ullam
+# Hands on VVL: The Pioneer Project
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+## Why This Repository?
 
-| Syntax        | Description |   Test Text |
-| :------------ | :---------: | ----------: |
-| Header        |    Title    | Here's this |
-| Paragraph     |    Text     |    And more |
-| Strikethrough |             |    ~~Text~~ |
+The sails-vvl-device-details-app repository serves as the cornerstone for Redux Toolkit migration across the e-shop ecosystem. As the first project to undergo this transformation, it provides valuable insights and practical examples for other teams embarking on their migration journey.
 
-## Getting Started
+<Note title="Pioneer Project" type="info">
+  This repository, maintained by the Kilo team, serves as a reference implementation for migrating from Redux Saga to Redux Toolkit in the e-shop ecosystem. Other teams can use this as a blueprint for their own migration efforts.
+</Note>
 
-To begin using the Documentation Template, follow these simple steps:
+## Meet the Migration Team
 
-- Start by cloning the repository to your local machine.
+The Kilo team brings together diverse expertise to ensure a successful migration. Each team member has contributed unique skills and insights to different aspects of the project.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quae iure nulla deserunt dolore quam pariatur minus sapiente accusantium. Optio, necessitatibus sequi. Veritatis, aspernatur? Possimus quis repellat eum vitae eveniet.
+### Technical Leadership
 
-## Blockquotes
+<CardGrid>
+  <Card
+    title="Aya Megala"
+    description="The tech lead of the migration project 📈"
+    image="/animations/knife.webp?height=200&width=200"
+    variant="image"
+    className="bg-black"
+  />
+</CardGrid>
 
-Blockquotes are useful for emphasizing key points or quoting external sources:
+### API and Testing Experts
 
-> "Documentation is a love letter that you write to your future self." - Damian Conway
+<CardGrid>
+  <Card
+    title="Mayada Ghanem"
+    description="The Senior API Master 🥋"
+    image="/animations/cat computer.webp?height=200&width=200"
+    variant="image"
+    className="bg-black"
+  />
+  <Card
+    title="Mona AbdElMaqsoud"
+    description="The Tariff slice creator, and The test-mocking Master 🥋"
+    image="/animations/tired of computer.webp?height=200&width=200"
+    variant="image"
+    className="bg-black"
+  />
+</CardGrid>
 
-Feel free to use blockquotes to highlight important information or quotes relevant to your documentation.
+### Feature Implementation Specialists
 
-## Code Examples with switch
+<CardGrid>
+  <Card
+    title="Ahmed AbouRaia"
+    description="The Options slice creator, and The docs writer 📖"
+    image="/animations/depressed.webp?height=200&width=200"
+    variant="image"
+    className="bg-black"
+  />
+  <Card
+    title="Nour AbuElkomsan"
+    description="The App slice creator, and Our professional code quality enthusiast 👌"
+    image="/animations/finally.webp?height=200&width=200"
+    variant="image"
+    className="bg-black"
+  />
+  <Card
+    title="Osama Hazaa"
+    description="The TradeIn slice creator, and Our arizing star 💫"
+    image="/animations/stressed.webp?height=200&width=200"
+    variant="image"
+    className="bg-black"
+  />
+</CardGrid>
 
-Here a custom tab component from shadcn ui is used.
+## Areas of Expertise
 
-<Tabs defaultValue="js" className="pt-5 pb-1">
-  <TabsList className="">
-    <TabsTrigger value="js">layout.jsx</TabsTrigger>
-    <TabsTrigger value="ts">layout.tsx</TabsTrigger>
-  </TabsList>
-  <TabsContent value="js">
-  ```jsx {7} showLineNumbers
-import ThemeProvider from './theme-provider'
- 
-export default function RootLayout({ children }) {
-  return (
-    <html>
-      <body className="container">
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  )}
-````
-  </TabsContent>
-  <TabsContent value="ts">
-```tsx {11} showLineNumbers
-import ThemeProvider from './theme-provider'
- 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html>
-      <body className="container">
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  )
-}
-```
-  </TabsContent>
-</Tabs>
+If you're working on your own migration and need guidance, here's who to reach out to for specific topics:
 
-## Conclusion
+<Step>
+  <StepItem title="Project Architecture">
+    **Contact**: Aya Megala
+    - Overall migration strategy
+    - Project structure decisions
+    - Best practices implementation
+  </StepItem>
+  
+  <StepItem title="API Integration">
+    **Contact**: Mayada Ghanem
+    - RTK Query implementation
+    - API endpoint migration
+    - Data fetching patterns
+  </StepItem>
+  
+  <StepItem title="Testing Strategy">
+    **Contact**: Mona AbdElMaqsoud
+    - Test mocking setup
+    - Unit test migration
+    - Integration test implementation
+  </StepItem>
+  
+  <StepItem title="Feature Implementation">
+    **Contact**: Ahmed AbouRaia, Nour AbuElkomsan, or Osama Hazaa
+    - Slice creation and management
+    - State management patterns
+    - Component integration
+  </StepItem>
+</Step>
 
-Thank you for choosing the Documentation Template for your project. Whether you're documenting software, APIs, or processes, we're here to support you in creating clear and effective documentation. Happy documenting!
+## Documentation Structure
+
+The following sections will provide detailed insights into each aspect of the migration process:
+
+1. **API Migration**: Converting API calls to use RTK Query
+2. **Saga to Listeners**: Transforming side effects management
+3. **Updating Selectors**: Implementing efficient state selection
+4. **Components Separation**: Organizing and structuring components
+5. **Code Testing**: Ensuring reliability through comprehensive testing
+
+<Note title="Getting Help" type="success">
+  Each team member is committed to helping other teams succeed in their migration journey. Don't hesitate to reach out to the relevant expert when you encounter challenges in their area of expertise.
+</Note>
+

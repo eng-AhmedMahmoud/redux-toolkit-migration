@@ -1,5 +1,163 @@
 ---
-title: Changelog
-description: Changelogs and improvements to the Documents projects.
-keywords: ["changelog", "guide", "nextjs", "documents"]
+title: Base Knowledge
+description: Comprehensive overview of Redux, Redux Saga, and Redux Toolkit, including their benefits, drawbacks, and reasons for migration.
+keywords: ["redux", "redux saga", "redux toolkit", "state management", "react"]
 ---
+
+# Redux, Redux Saga, and Redux Toolkit
+
+This section provides a comprehensive introduction to Redux, Redux Saga, and Redux Toolkit, explaining their core concepts, benefits, and drawbacks. We'll also explore why migrating from Redux Saga to Redux Toolkit is beneficial for modern React applications.
+
+## Redux: The Foundation
+
+Redux is a predictable state container for JavaScript apps, primarily used with React. It helps you write applications that behave consistently across different environments and are easy to test.
+
+<Mermaid chart={`
+graph TD
+    A[Action] -->|Dispatched| B[Store]
+    B -->|Passes action to| C[Reducer]
+    C -->|Updates| D[State]
+    D -->|Notifies| E[React Components]
+    E -->|Dispatch new actions| A
+`} />
+
+### Key Concepts of Redux
+
+<Step>
+  <StepItem title="Store">
+    The single source of truth that holds the entire state of your application.
+  </StepItem>
+  <StepItem title="Actions">
+    Plain JavaScript objects that describe what happened in the app.
+  </StepItem>
+  <StepItem title="Reducers">
+    Pure functions that take the current state and an action, and return a new state.
+  </StepItem>
+  <StepItem title="Dispatch">
+    The method used to send actions to the store, triggering state updates.
+  </StepItem>
+</Step>
+
+### Benefits of Redux
+
+1. **Predictable state updates**: With a unidirectional data flow, it's easier to track how your application's state changes over time.
+2. **Centralized state**: All your application's state is stored in one place, making it easier to manage and debug.
+3. **Time-travel debugging**: The ability to move back and forth through the state of your application.
+4. **Ecosystem and tools**: A rich ecosystem of middleware, developer tools, and extensions.
+
+### Drawbacks of Redux
+
+1. **Boilerplate code**: Requires writing a lot of code for even simple operations.
+2. **Complexity for small apps**: Can be overkill for small to medium-sized applications.
+3. **Steep learning curve**: Concepts like reducers and immutable state updates can be challenging for beginners.
+
+## Redux Saga: Managing Side Effects
+
+Redux Saga is a middleware library for Redux that aims to make side effects (like asynchronous data fetching) easier to manage and more efficient to execute.
+
+<Mermaid chart={`
+graph TD
+    A[Action] -->|Dispatched| B[Redux Store]
+    B -->|Intercepts action| C[Saga Middleware]
+    C -->|Manages side effects| D[API Calls/Async Operations]
+    D -->|Dispatches new action| A
+    B -->|Updates| E[State]
+    E -->|Notifies| F[React Components]
+`} />
+
+### Key Concepts of Redux Saga
+
+<Step>
+  <StepItem title="Sagas">
+    Generator functions that yield objects to the redux-saga middleware.
+  </StepItem>
+  <StepItem title="Effects">
+    Plain JavaScript objects that describe side effects, like API calls or timer operations.
+  </StepItem>
+  <StepItem title="Workers">
+    Sagas that perform the actual side effect and return a result.
+  </StepItem>
+  <StepItem title="Watchers">
+    Sagas that watch for dispatched actions and fork worker sagas in response.
+  </StepItem>
+</Step>
+
+### Benefits of Redux Saga
+
+1. **Powerful side effect model**: Handles complex async flows with ease.
+2. **Testability**: Generator functions are easy to test without mocking.
+3. **Complex coordination**: Can manage series of actions over time.
+4. **Cancellation**: Provides a way to cancel ongoing tasks.
+
+### Drawbacks of Redux Saga
+
+1. **Complexity**: Introduces additional concepts (generators, effects) that can be hard to grasp.
+2. **Verbosity**: Requires writing more code compared to simpler alternatives.
+3. **Learning curve**: Developers need to understand generator functions and Redux Saga's effect creators.
+
+## Redux Toolkit: The Modern Approach
+
+Redux Toolkit is the official, opinionated, batteries-included toolset for efficient Redux development. It simplifies many common use cases and reduces boilerplate code.
+
+<Mermaid chart={`
+graph TD
+    A[createSlice] -->|Generates| B[Reducer]
+    A -->|Generates| C[Action Creators]
+    D[createAsyncThunk] -->|Handles async logic| E[Pending/Fulfilled/Rejected Actions]
+    F[configureStore] -->|Sets up| G[Redux Store with Best Practices]
+    H[createEntityAdapter] -->|Manages| I[Normalized State]
+`} />
+
+### Key Features of Redux Toolkit
+
+<Step>
+  <StepItem title="createSlice">
+    Automatically generates action creators and action types based on the reducers you provide.
+  </StepItem>
+  <StepItem title="createAsyncThunk">
+    Simplifies the process of making asynchronous requests and handling their results.
+  </StepItem>
+  <StepItem title="configureStore">
+    Provides a pre-configured Redux store with good defaults, including Redux Thunk and Redux DevTools Extension.
+  </StepItem>
+  <StepItem title="createEntityAdapter">
+    Provides a standardized way to store and update normalized data in your Redux store.
+  </StepItem>
+</Step>
+
+### Benefits of Redux Toolkit
+
+1. **Less boilerplate**: Significantly reduces the amount of code needed to set up and use Redux.
+2. **Simplified async logic**: `createAsyncThunk` makes it easier to handle asynchronous operations.
+3. **Immutable updates made easy**: Uses Immer under the hood, allowing you to write "mutating" logic in reducers.
+4. **Good defaults**: Comes pre-configured with recommended settings and middleware.
+
+### Drawbacks of Redux Toolkit
+
+1. **Opinionated**: While this is generally a benefit, it might not fit all use cases or preferences.
+2. **Learning curve**: Although easier than vanilla Redux, it still requires learning new concepts and APIs.
+
+## Why Migrate to Redux Toolkit?
+
+Migrating from Redux Saga to Redux Toolkit offers several advantages:
+
+1. **Simplified code**: Redux Toolkit reduces boilerplate and makes the codebase more maintainable.
+2. **Improved performance**: Built-in optimizations in Redux Toolkit can lead to better app performance.
+3. **Modern best practices**: Redux Toolkit incorporates the latest Redux best practices out of the box.
+4. **Easier async handling**: `createAsyncThunk` provides a simpler way to handle most async operations compared to sagas.
+5. **Official recommendation**: As the official Redux package, Redux Toolkit ensures long-term support and updates.
+
+<Mermaid chart={`
+graph TD
+    A[Redux + Redux Saga] -->|Migration| B[Redux Toolkit]
+    A -->|Complex setup| C[Boilerplate heavy]
+    A -->|Powerful but verbose| D[Complex async flows]
+    B -->|createSlice| E[Reduced boilerplate]
+    B -->|createAsyncThunk| F[Simplified async logic]
+    B -->|Immer integration| G[Easy immutable updates]
+    B -->|Good defaults| H[Optimized performance]
+`} />
+
+While Redux Saga remains a powerful tool for complex async flows, for many applications, the simplicity and efficiency of Redux Toolkit make it an attractive option. The migration process allows you to streamline your state management code while retaining the benefits of a centralized Redux architecture.
+
+In the following sections, we'll dive deeper into the migration process, providing step-by-step guides and practical examples to help you transition your Redux Saga code to Redux Toolkit efficiently.

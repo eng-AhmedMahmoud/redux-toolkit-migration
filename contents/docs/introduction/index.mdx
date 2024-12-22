@@ -1,83 +1,74 @@
 ---
-title: Introduction
-description: This section provides an overview of how to get started with the Documents, Next.js Document Starter Kit.
-keywords: ["introduction", "guide", "nextjs", "documents"]
+title: Redux Saga to Redux Toolkit Migration
+description: This guide provides a comprehensive overview of migrating from Redux Saga to Redux Toolkit in the sails-vvl-device-details-app.
+keywords: ["redux saga", "redux toolkit", "migration", "state management", "react"]
 ---
 
-![Banner](/images/banner.png "Documents")
+## Why Should We Read This Documentation?
 
-## Documents
+Migrating from Redux Saga to Redux Toolkit is a crucial step in modernizing your React application's state management. This documentation matters because:
 
-Welcome to **Documents**, a powerful and flexible Next.js documentation starter kit designed to simplify the process of creating high-quality, comprehensive 
-product documentation, technical manuals, and business guides. Built with **React**, **Tailwind CSS**, and **TypeScript**, this starter kit provides the 
-foundation to build your project documentation and knowledge base.
+1. **Simplified State Management**: Redux Toolkit offers a more streamlined approach to managing application state.
+2. **Improved Performance**: Redux Toolkit's built-in optimizations can lead to better app performance.
+3. **Better Developer Experience**: With less boilerplate and more powerful abstractions, Redux Toolkit enhances the development process.
+4. **Future-Proofing**: As the official, recommended way to write Redux logic, Redux Toolkit ensures your codebase stays up-to-date with best practices.
 
-Documents was crafted to streamline the creation, management and showcasing of documentation, allowing developers and teams to focus on the content rather 
-than building the underlying structure. This documentation aims to help you get up and running with the kit, exploring the various features and providing 
-insights into how to structure and present your content effectively.
+![Banner](/images/banner.png "Redux Saga to Redux Toolkit Migration")
+
+## Contents of the Documentation
+
+This documentation covers all aspects of migrating from Redux Saga to Redux Toolkit in the sails-vvl-device-details-app:
+
+| Section                | Description                                                                                 |
+|------------------------|---------------------------------------------------------------------------------------------|
+| **Base Knowledge**     | Fundamental concepts of Redux Saga and Redux Toolkit                                        |
+| **Migration Steps**    | Step-by-step guide to transition from Redux Saga to Redux Toolkit                           |
+| **API Migration**      | How to migrate API calls and async logic                                                    |
+| **Saga to Listeners**  | Converting Redux Saga effects to Redux Toolkit listeners                                    |
+| **Selector Updates**   | Adapting selectors for use with Redux Toolkit                                               |
+| **Component Changes**  | Refactoring components to work with the new Redux Toolkit structure                         |
+| **Testing Strategies** | Updated approaches for unit and integration testing with Redux Toolkit                      |
+
+## How to Read This Documentation
+
+To get the most out of this migration guide:
 
 <CardGrid>
   <Card
-    subtitle="Instructions"
-    title="Installation"
-    description="Get started with Documents using our quick start installation guide to get your project started."
-    href="/docs/introduction/installation"
+    subtitle="Fundamentals"
+    title="Base Knowledge"
+    description="Start here to understand the key differences between Redux Saga and Redux Toolkit."
+    href="/docs/introduction/base-knowledge"
   />
   <Card
-    subtitle="Setup"
-    title="Site Settings"
-    description="Setting up your Documents projects layout, links and search engine optimisation."
-    href="/docs/introduction/setup"
-  />
+    subtitle="Process"
+    title="Migration Steps"
+    description="Follow our step-by-step guide to migrate your application successfully."
+    href="/docs/introduction/migration-steps"
+    />
   <Card
-    subtitle="Support"
-    title="Rubix Studios"
-    description="Australia's leading branding, marketing and web development company."
-    href="https://www.rubixstudios.com.au/"
-    external={true}
+    subtitle="Implementation"
+    title="Hands-on VVL"
+    description="Dive into practical examples specific to the sails-vvl-device-details-app."
+    href="/docs/hands-on-vvl"
   />
 </CardGrid>
 
-## Why Documents?
+### Main Navigation
 
-Documents was created as an open-source project to help the community streamline their documentation process, enabling developers to focus on more critical 
-tasks. Built with scalability in mind, it adapts to projects of all sizes, from single-page guides to comprehensive knowledge bases. 
+1. Introduction
+   - Base Knowledge
+   - Steps of Migration
+   - Structure Overview
+2. Hands on VVL
+   - API Migration
+   - Saga to Listeners
+   - Updating the Selectors
+   - Components Separation
+   - Code Testing
 
-The integration of MDX, custom components and Tailwind CSS ensures an intuitive experience, simplifying both content creation and management. 
+Throughout the documentation, we compare the file structure with the code, providing clear before-and-after examples to illustrate the migration process.
 
-  - **Product Guides**: Comprehensive manuals for product usage, setup and troubleshooting.
-  - **Business Documentation**: Clear and structured documentation for internal processes, policies and systems.
-  - **Technical Manuals**: Detailed guides for APIs, software development kits (SDKs) and technical processes.
+## Final Note
 
-Documents offers extensive customization options, allowing you to easily align the design and functionality with your branding.
-
-## Key Features
-
-Here are some of the features that make **Documents** ideal for building your documentation:
-
-| Feature                              | Description                                                                                                      |
-|--------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| **Content Creation**                 | Write documentation using Markdown with JSX, custom components and Mermaid.js for diagrams.                      |
-| **Navigation & Structure**           | Organize content with multi-level navigation, automatically generated tables of contents and smooth pagination.  |
-| **Code Features**                    | Syntax highlighting, enhanced code blocks and a code switcher with copy functionality.                           |
-| **Advanced Search**                  | Fuzzy search with term highlighting for quick and accurate results.                                              |
-| **Theming & Layout**                 | Supports light/dark modes with automatic switching and responsive design.                                        |
-| **Math & Tables**                    | Seamless integration of LaTeX for math and structured tables.                                                    |
-| **SEO & Meta Tags**                  | Built-in SEO, metadata generation and control over meta tags for better search rankings and social sharing.      |
-| **AI-powered Docs (In Development)** | Future feature for AI-driven content discussions and search.                                                     |
-
-## How to Use These Documents
-
-You'll find the documentation's navigation bar on the left side of the screen. The pages are organized in a logical sequence, progressing from foundational 
-topics to more advanced concepts, allowing you to follow along step-by-step as you build your documentation. However, feel free to explore the content in 
-any order, selecting the sections most relevant to your use case.
-
-On the right side of the screen, a table of contents provides easy navigation between sections of each page. For quick access to specific content, you can 
-use the search bar at the top or the search shortcut (`Ctrl+K` or `Cmd+K`).
-
-Head over to the [Installation Guide](/docs/introduction/installation).
-
-## Join our Community
-
-If you have questions about anything related to Documents, you're always welcome to ask our community on [GitHub](https://github.com/rubixvi/rubix-documents), [X (Twitter)](https://x.com/rubixstory), [Facebook](https://www.facebook.com/rubixstudios) 
-and [Reddit](https://www.reddit.com/r/RubixStudios/).
+We hope you find this documentation helpful in your migration journey from Redux Saga to Redux Toolkit. Remember, learning and implementing new technologies should be an enjoyable process. Have fun with the migration, and you're always welcome to contribute to improving this guide! 😊
