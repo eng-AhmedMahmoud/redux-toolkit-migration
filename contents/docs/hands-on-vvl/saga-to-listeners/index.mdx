@@ -1,46 +1,177 @@
 ---
-title: Diagrams
-description: This section provides an overview of Introduction.
+title: Saga to Listeners
+description: A comprehensive guide for migrating to the new listeners architecture
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste dolorum tempore consectetur explicabo tempora provident quia maxime, molestiae, facilis aperiam et, error illum vel ullam? Quis architecto dolore ullam
+highlighting key concepts and differences in implementation:
+### Setupping the Configs
 
-## Flowchart
+```typescript
+// src/app/createAppSelector.ts
+import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from './store';
 
-<Mermaid chart={`graph TD;
-    Start --> Task1;
-    Task1 --> Task2;
-    Task2 --> End;`} />
+export const createAppSelector = createSelector.withTypes<RootState>();
+```
 
-##  Decision Tree
+```typescript
+// src/app/createAppSlice.ts
+import {
+    asyncThunkCreator,
+    buildCreateSlice,
+} from '@reduxjs/toolkit';
 
-<Mermaid chart={`graph TD;
-    A[Start] --> B{Is it raining?};
-    B -->|Yes| C[Take an umbrella];
-    B -->|No| D[Enjoy the weather];
-    C --> E[Go outside];
-    D --> E;`} />
+export const createAppSlice = buildCreateSlice({
+    creators: { asyncThunk: asyncThunkCreator },
+});
+```
 
-## Entity-Relationship Diagram
+```typescript
+// src/app/listener.ts
+import { createListenerMiddleware } from '@reduxjs/toolkit';
+import type {
+    AppDispatch,
+    RootState,
+} from './store';
 
-<Mermaid chart={`erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    PRODUCT ||--o{ LINE-ITEM : "included in"
-    CUSTOMER {
-        string name
-        string email
+export const listener = createListenerMiddleware();
+
+/**
+ * Function to start listening for actions
+ */
+export const startAppListening = listener.startListening.withTypes<
+    RootState,
+    AppDispatch
+>();
+```
+
+### Understanding the Migration
+
+The main differences between Sagas and Listeners involve how we handle side effects and state management:
+
+- `call` → Direct function calls
+- `put` → `listenerApi.dispatch`
+- Saga generators → Listener effect callbacks
+- `select` → `listenerApi.getState`
+
+### Code Comparison
+
+<Tabs defaultValue="saga" className="pt-5 pb-1">
+  <TabsList>
+    <TabsTrigger value="saga">Saga Implementation</TabsTrigger>
+    <TabsTrigger value="listeners">Listeners Implementation</TabsTrigger>
+  </TabsList>
+  <TabsContent value="saga">
+```typescript
+/**
+ * Get device from Glados
+ */
+export function* getDeviceSaga(): Generator<StrictEffect> {
+    const hardwareService = GladosServiceFactory.getHardwareService();
+
+    try {
+        const response = 
+            (yield call([hardwareService, hardwareService.getHardwareDetailGroup], 'v1', params)) as
+                Awaited<ReturnType<typeof hardwareService.getHardwareDetailGroup>>;
+        const { data } = response;
+
+        yield put(getDeviceSuccess(data));
     }
-    ORDER {
-        int orderNumber
-        date orderDate
+    catch (error: any) {
+        yield call([console, 'error'], error);
+
+        const { response } = error;
+        if (response && response.status === 404) {
+            yield call(redirectToDop);
+        } else {
+            yield put(getDeviceFailed());
+        }
     }
-    LINE-ITEM {
-        int quantity
-        float price
-    }
-    PRODUCT {
-        int productId
-        string name
-        float price
-    }`} />
+}
+
+/**
+ * Get device success saga
+ */
+export function* getDeviceSuccessSaga(): Generator<StrictEffect> {
+    const atomicId = (yield select(selectAtomicId())) as SelectorReturnType<typeof selectAtomicId>;
+    yield put(setAtomicId(atomicId!));
+    yield put(getSubscriptions());
+}
+```
+  </TabsContent>
+  <TabsContent value="listeners">
+```typescript
+/**
+ * Adds the listener for the `setDefaultState` case.
+ * It then initiates the `getHardwareDetailGroup` request.
+ */
+setDefaultState: () => startAppListening({
+    actionCreator: setDefaultState,
+    effect: (_action, listenerApi) => {
+        const state = listenerApi.getState();
+        const deviceId = selectDeviceId(state);
+        const salesChannel = selectSalesChannel(state) as SalesChannel;
+        
+        deviceId 
+            ? listenerApi.dispatch(getHardwareDetailGroup.initiate({ salesChannel }))
+            : redirectToDop();
+    },
+}),
+
+/**
+ * Adds the listener for the `getHardwareDetailGroup.matchFulfilled` case.
+ * It then checks if the user has selected a tariff ID and initiates 
+ * the `getTariffWithHardware` request.
+ */
+getDeviceFulfilled: () => startAppListening({
+    matcher: getHardwareDetailGroup.matchFulfilled,
+    effect: (_action, listenerApi) => {
+        const state = listenerApi.getState();
+        const atomicId = selectAtomicId(state);
+        listenerApi.dispatch(setAtomicId({ atomicId }));
+
+        const salesChannel = selectSalesChannel(state) as SalesChannel;
+        const isTradeIn = selectIsTradeIn(state);
+        const devicePayload = _action.payload;
+        
+        listenerApi.dispatch(setDevicePayload(devicePayload));
+        listenerApi.dispatch(getTariffWithHardware.initiate({ 
+            salesChannel, 
+            isTradeIn 
+        }));
+    },
+}),
+
+/**
+ * Adds the listener for the `getHardwareDetailGroup.matchRejected` case.
+ * It handles the error cases, including 404 redirects and general error handling.
+ */
+getDeviceRejected: () => startAppListening({
+    matcher: getHardwareDetailGroup.matchRejected,
+    effect: action => {
+        console.error(action.error);
+        
+        const { code } = action.error;
+        if (code === '404') {
+            redirectToDop();
+        }
+    },
+}),
+```
+  </TabsContent>
+</Tabs>
+
+### Key Concepts in Listeners
+
+1. **Action Creation and Dispatch**
+   - Instead of using `put` effects like in Sagas, Listeners use `listenerApi.dispatch`
+   - Actions are dispatched directly without needing to yield
+
+2. **State Management**
+   - Replace `select` effects with `listenerApi.getState()`
+   - Access state directly through the listener API
+
+3. **Effect Handling**
+   - Replace generator functions with effect callbacks
+   - Use `startAppListening` to register listeners
+   - Handle success and error cases with separate listeners using `matcher`

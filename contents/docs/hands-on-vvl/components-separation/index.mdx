@@ -1,34 +1,431 @@
 ---
-title: Lists
-description: This section provides an overview of Introduction.
+title: Components Separation
+description: This section provides an overview of component separation patterns.
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste dolorum tempore consectetur explicabo tempora provident quia maxime, molestiae, facilis aperiam et, error illum vel ullam? Quis architecto dolore ullam
+highlighting the main differences in implementation between the old pattern and the new pattern:
 
-## Checklist
+## Old Code Pattern
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+### Component Structure
 
-## Simple List
+Mixed Component structure depending on the state from its outer scope.
 
-- Item 1
-- Item 2
-- Item 3
+```typescript
+import {
+    IOptionPickerColorItem,
+    OptionPicker,
+    OPTION_PICKER_TYPE_COLOR,
+} from "@vfde-brix/ws10/option-picker";
+import { StateProps } from "app/container/Options/interface";
+import { mountOptionPicker } from "./OptionPicker";
+import { OptionsActionDispatchers } from "app/container/Options/slice";
 
-## Number List
+/**
+ * Mount the color picker
+ */
+const mountColorOptionPicker = (
+    containerId: string,
+    onChangeAction?: OptionsActionDispatchers["changeColor"]
+): OptionPicker | null => {
+    const items: IOptionPickerColorItem[] = [];
+    const container = document.getElementById(containerId);
 
-1. Research
-2. Draft the content
-3. Review and edit
-4. Publish
+    const onChange = (event: Event) => {
+        onChangeAction &&
+            onChangeAction((event.target as HTMLInputElement).value);
+    };
 
-## Nested List
+    return (
+        container &&
+        mountOptionPicker(
+            container,
+            "option-picker-color",
+            OPTION_PICKER_TYPE_COLOR,
+            "option-picker-color",
+            items,
+            onChange
+        )
+    );
+};
 
-- Main Category 1
-  - Sub Item 1.1
-  - Sub Item 1.2
-- Main Category 2
-  - Sub Item 2.1
-  - Sub Item 2.2
+/**
+ * Convert colors from API to color option picker items
+ */
+export const convertColorsFromApiToColorOptionPickerItems = ({
+    currentColor,
+    availableColors = [],
+}: StateProps): IOptionPickerColorItem[] | undefined => {
+    const items: IOptionPickerColorItem[] = [];
+
+    for (const color of availableColors!) {
+        let optChecked = false;
+
+        if (currentColor?.displayLabel === color.displayLabel) {
+            optChecked = true;
+        }
+
+        items.push({
+            // We need to encode the value, because the API operates with HTML entities
+            // (e. g. 'Gr&#252;n' instead of 'Grün'). It's decoded in the reducer.
+            stdValue: encodeURIComponent(color.displayLabel),
+            stdPrimaryLabel: color.displayLabel,
+            stdColor: `rgb(${color.primaryColorRgb})`,
+            optChecked,
+        });
+    }
+
+    return items;
+};
+
+export default mountColorOptionPicker;
+```
+
+### Feature Entry structure
+
+Landing all components + Performing heavy state manipulation for all components.
+
+<Step>
+  <StepItem title="Mount Component">
+    ```typescript
+    // Each Brix component needs to be mounted first
+    // This involves selecting elements using JS and passing them to createComponent Function
+
+    injectSaga(optionsSlice.name, optionsSaga);
+    const { setDefaultState, changeColor, changeCapacity, toggleAccordion } = actions;
+
+    // Set atomic Id in the default state
+    setDefaultState(getAtomicId());
+
+    const deliveryDateIconText = mountIconText(DELIVERY_DATE_CONTAINER_ID);
+    const colorOptionPicker = mountColorOptionPicker(
+        COLOR_OPTION_PICKER_CONTAINER_ID,
+        changeColor
+    );
+    const capacityOptionPicker = mountCapacityOptionPicker(
+        CAPACITY_OPTION_PICKER_CONTAINER_ID,
+        changeCapacity
+    );
+    const textHeader = mountTextHeader(TEXT_HEADER_CONTAINER_ID);
+    ```
+
+  </StepItem>
+
+  <StepItem title="State Derivation">
+    ```typescript
+    // getDerivedStateFromProps is used to listen for store state changes
+    // Runs logic when state values change, like toggling component visibility
+    return {
+        getDerivedStateFromProps(newState: StateProps, oldState: StateProps) {
+            const {
+                technicalDetails,
+                deliveryScope,
+                availableColors,
+                availableCapacities,
+                capacitiesForColor,
+                currentCapacity,
+                images,
+                cellular,
+                shippingInfo,
+                deviceName,
+            } = newState;
+            textHeader &&
+                deviceName &&
+                updateTextHeader(textHeader, deviceName);
+            technicalDetailsAcordion =
+                mountTechnicalDetailsAccordion(toggleAccordion);
+
+            if (
+                technicalDetails &&
+                technicalDetails !== oldState.technicalDetails
+            ) {
+                technicalDetailsAcordion &&
+                    updateTechnicalDetailsAccordion(
+                        technicalDetailsAcordion,
+                        technicalDetails,
+                        deliveryScope!
+                    );
+            }
+
+            if (availableColors !== oldState.availableColors) {
+                colorOptionPicker?.update({
+                    items: convertColorsFromApiToColorOptionPickerItems(
+                        newState
+                    ),
+                });
+            }
+        },
+    };
+    ```
+
+  </StepItem>
+
+  <StepItem title="State Mapping">
+    ```typescript
+    // mapStateToProps maps state to selectors
+    // Example: creating selectIsLoadingFunction for isLoading state
+
+    const mapStateToProps = createStructuredSelector<
+        RootState<IInitialStateOptions & IInitialStateApp>,
+        StateProps
+    >({
+        devicePayload: selectDevicePayload(),
+        availableColors: selectColors(),
+        availableCapacities: selectCapacities(),
+        currentColor: selectCurrentColor(),
+        currentCapacity: selectCurrentCapacity(),
+        capacitiesForColor: selectCapacitiesForColor(),
+        images: selectImages(),
+        atomicId: selectAtomicId(),
+        technicalDetails: selectTechnicalDetails(),
+        shippingInfo: selectShippingInfo(),
+        deliveryScope: selectDeliveryScope(),
+        deviceName: selectDeviceName(),
+        cellular: selectCellular(),
+    });
+
+    const mountOptionsContainer = connect(
+        mapStateToProps,
+        optionsActionDispatchers
+    )(Options);
+
+    export default mountOptionsContainer;
+    ```
+
+  </StepItem>
+</Step>
+
+### Key Functions
+
+-   `InjectReducer`: Adds new slices to the store (initial empty store creation)
+-   `InjectSaga`: Injects main saga for application logic initialization
+-   `getDerivedStateFromProps`: Listens for and handles store state changes
+-   `mapStateToProps`: Maps state to selectors for components
+
+## New Code Pattern
+
+### New Component Structure
+
+<Step>
+  <StepItem title="Standalone Component">
+    Creating standalone self-state managed components with Redux Toolkit Listeners.
+
+    ```typescript
+    import {
+        IOptionPickerColorItem,
+        OPTION_PICKER_TYPE_COLOR,
+        OptionPicker,
+    } from "@vfde-brix/ws10/option-picker";
+    import { startAppListening } from "../../../app/listener";
+    import { RootState, useAppDispatch } from "../../../app/store";
+    import { mountOptionPicker } from "../../../components/OptionPicker";
+    import { selectColorOptions } from "../selectors";
+    import { changeColor } from "../slice";
+    import { convertColorsFromApiToColorOptionPickerItems } from "../helpers/convertColorHelper";
+
+    /**
+     * Mount the color picker
+     */
+    export const mountColorOptionPicker = (
+        containerId: string
+    ): OptionPicker | null => {
+        const dispatch = useAppDispatch();
+
+        const onChange = (event: Event) => {
+            dispatch(changeColor((event.target as HTMLInputElement).value));
+        };
+
+        const items: IOptionPickerColorItem[] = [];
+
+        const optionPicker = mountOptionPicker(containerId, {
+            stdName: "option-picker-color",
+            optType: OPTION_PICKER_TYPE_COLOR,
+            items,
+            stdScreenreaderLegend: "option-picker-color",
+            business: {
+                onChange,
+            },
+        });
+
+        /* istanbul ignore if */
+        if (!optionPicker) {
+            return null;
+        }
+
+        listenForUpdates(optionPicker);
+
+        return optionPicker;
+    };
+
+    const listenForUpdates = (optionPicker: OptionPicker) => {
+        startAppListening({
+            predicate: (_action, currentState, previousState) =>
+                selectColorOptions(currentState) !==
+                selectColorOptions(previousState),
+            effect: (_action, listenerApi) => {
+                const state = listenerApi.getState();
+
+                updateColors(state, optionPicker);
+            },
+        });
+    };
+
+    const updateColors = (state: RootState, optionPicker: OptionPicker) => {
+        const items = convertColorsFromApiToColorOptionPickerItems(state);
+
+        optionPicker.update({ items });
+    };
+    ```
+
+  </StepItem>
+
+  <StepItem title="Shared Components">
+    Developing shared components for use across the application.
+
+    ```typescript
+    import {
+        createOptionPicker,
+        IOptionPickerBusinessLogic,
+        IOptionPickerItem,
+        IOptionPickerProperties,
+        OptionPicker,
+    } from "@vfde-brix/ws10/option-picker";
+
+    /**
+     * Mount the option picker
+     */
+    export const mountOptionPicker = (
+        containerId: string,
+        businessLogicOrProperties:
+            | IOptionPickerBusinessLogic
+            | IOptionPickerProperties<IOptionPickerItem>
+    ): OptionPicker | null => {
+        const container = document.getElementById(containerId);
+
+        /* istanbul ignore if */
+        if (!container) {
+            return null;
+        }
+
+        return createOptionPicker(container, businessLogicOrProperties);
+    };
+
+    /**
+     * Update optionPicker items
+     * @param optionPicker the option picker
+     * @param items the items of the option picker
+     */
+    export const updateOptionPickerItems = (
+        optionPicker: OptionPicker,
+        items: IOptionPickerItem[]
+    ) => {
+        const optionPickerProperties = optionPicker.getProperties();
+        optionPicker.update({ ...optionPickerProperties, items });
+    };
+    ```
+
+  </StepItem>
+
+  <StepItem title="Functionality Separated into Helpers">
+    Isolating the component functionality into reusable and testable helper files.
+
+    ```typescript
+    import { RootState } from "../../../app/store";
+    import { selectColorOptions, selectCurrentColor } from "../selectors";
+    import { IOptionPickerColorItem } from "@vfde-brix/ws10/option-picker";
+
+    /**
+     * Convert colors from API to color option picker items
+     */
+    export const convertColorsFromApiToColorOptionPickerItems = (
+        state: RootState
+    ): IOptionPickerColorItem[] => {
+        const colorOptions = selectColorOptions(state);
+        const currentColor = selectCurrentColor(state);
+        const items: IOptionPickerColorItem[] = [];
+
+        if (!colorOptions) {
+            return items;
+        }
+
+        for (const color of colorOptions) {
+            items.push({
+                stdValue: encodeURIComponent(color.displayLabel),
+                stdPrimaryLabel: color.displayLabel,
+                stdColor: `rgb(${color.primaryColorRgb})`,
+                optChecked: currentColor?.displayLabel === color.displayLabel,
+            });
+        }
+
+        return items;
+    };
+    ```
+
+  </StepItem>
+</Step>
+
+### New Feature Entry structure
+
+Clean Simplified version of the feature entry point.
+
+```typescript
+import { useAppDispatch } from "../../app/store";
+import "./style.scss";
+
+import initTariff from "../Tariff";
+import { mountTechnicalDetailsAccordion } from "./components/AccordionForTechnicalDetails";
+import { mountDeliveryDateIconText } from "./components/IconTextForDeliveryDate";
+import { prepareImageGallery } from "./components/ImageGallery";
+
+import { mountCapacityOptionPicker } from "./components/OptionPickerForCapacity";
+import { mountColorOptionPicker } from "./components/OptionPickerForColor";
+import { mountTextHeader } from "./components/TextHeader";
+import { getAtomicId } from "./helpers/getAtomicId";
+
+import { startListeners } from "./listeners";
+import { setDefaultState } from "./slice";
+import {
+    CAPACITY_OPTION_PICKER_CONTAINER_ID,
+    COLOR_OPTION_PICKER_CONTAINER_ID,
+    DELIVERY_DATE_CONTAINER_ID,
+    IMAGE_GALLERY_CONTAINER_ID,
+    TECHNICAL_DETAILS_ACCORDION_CONTAINER_ID,
+    TEXT_HEADER_CONTAINER_ID,
+} from "./constants";
+
+/**
+ * Init options
+ */
+export const initOptions = () => {
+    startListeners();
+
+    const dispatch = useAppDispatch();
+    dispatch(setDefaultState(getAtomicId()));
+
+    mountTextHeader(TEXT_HEADER_CONTAINER_ID);
+    prepareImageGallery(IMAGE_GALLERY_CONTAINER_ID);
+
+    mountColorOptionPicker(COLOR_OPTION_PICKER_CONTAINER_ID);
+    mountCapacityOptionPicker(CAPACITY_OPTION_PICKER_CONTAINER_ID);
+
+    mountDeliveryDateIconText(DELIVERY_DATE_CONTAINER_ID);
+    mountTechnicalDetailsAccordion(TECHNICAL_DETAILS_ACCORDION_CONTAINER_ID);
+
+    initTariff();
+};
+```
+
+### New Key Functions
+
+-   `startAppListening`: Initializes listeners for handling side effects
+-   `useAppDispatch`: Hook to dispatch actions within components
+-   `createOptionPicker`: Creates an option picker component
+-   `updateOptionPickerItems`: Updates items in the option picker component
+-   `convertColorsFromApiToColorOptionPickerItems`: Converts API color data to option picker items
+
+<Note title="Component State Management" type="info">
+    In the new pattern, listeners are used in the standalone component file to
+    handle side effects and update the state based on state changes. This
+    approach replaces the old pattern, which relied on the
+    `getDerivedStateFromProps` function to update the state.
+</Note>

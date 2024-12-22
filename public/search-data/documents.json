@@ -54,18 +54,6 @@
         "content": "This section covers how to separate your components for better maintainability after migrating to Redux Toolkit."
     },
     {
-        "slug": "/hands-on-vvl/components-separation/standalone-component",
-        "title": "Standalone Component",
-        "description": "Creating standalone components with Redux Toolkit",
-        "content": "Learn how to create standalone components that interact with Redux Toolkit slices."
-    },
-    {
-        "slug": "/hands-on-vvl/components-separation/shared-components",
-        "title": "Shared Components",
-        "description": "Developing shared components for use across the application",
-        "content": "Understand how to create and use shared components that work with Redux Toolkit state management."
-    },
-    {
         "slug": "/hands-on-vvl/code-testing",
         "title": "Code Reviewing & Testing",
         "description": "Testing strategies for Redux Toolkit implementation",

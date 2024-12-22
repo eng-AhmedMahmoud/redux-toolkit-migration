@@ -1,20 +1,153 @@
 ---
-title: Filetree
-description: This section provides an overview of Introduction.
+title: Updating Selectors
+description: This section provides an overview of updating selectors in the migration process.
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste dolorum tempore consectetur explicabo tempora provident quia maxime, molestiae, facilis aperiam et, error illum vel ullam? Quis architecto dolore ullam
+This section serves as a recap of the information provided in past sections and a reminder that new updated selectors were necessary to correctly update the state with every API call to ensure the state stays concurrent and updated throughout the whole app.
 
-<FileTree>
-  <Folder name="src" label="Source Code">
-    <File name="index.tsx" label="index.tsx" />
-    <Folder name="components" label="Components">
-      <File name="button.tsx" label="Button Component" />
-      <File name="input.tsx" label="Input Component" />
-    </Folder>
-    <Folder name="pages" label="Pages">
-      <File name="home.tsx" label="Home Page" />
-      <File name="about.tsx" label="About Page" />
-    </Folder>
-  </Folder>
-</FileTree>
+### Setting Up the Selectors
+
+Reintroducing `createAppSelector` to set up the selectors with pre-configured types and better IntelliSense.
+
+```typescript
+// src/app/createAppSelector.ts
+import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "./store";
+
+export const createAppSelector = createSelector.withTypes<RootState>();
+```
+
+### New Selectors Syntax
+
+```typescript
+/**
+ * Selects the HardwareDetailGroup query selector
+ */
+const createHardwareDetailGroupSelector = createAppSelector(
+    [(state) => state.vvlDeviceDetailsApp.salesChannel],
+    (salesChannel) =>
+        getHardwareDetailGroup.select({
+            salesChannel: salesChannel!,
+        })
+);
+
+/**
+ * Selects the HardwareDetailGroup query
+ */
+const selectHardwareDetailGroupQuery = createAppSelector(
+    [(state) => state, createHardwareDetailGroupSelector],
+    (state, selector) => selector(state)
+);
+
+/**
+ * Selects the full device
+ */
+const selectDevice = createAppSelector(
+    [selectHardwareDetailGroupQuery],
+    (query) => query?.data || null
+);
+
+// Using selectHardwareDetailGroupQuery & selectDevice in other selectors
+
+/**
+ * Selects error state directly from the state
+ */
+const selectOptionsLoadingFlag = createAppSelector(
+    [selectHardwareDetailGroupQuery],
+    (state) => state.isLoading
+);
+
+/**
+ * Selects error state directly from the state
+ */
+const selectOptionsErrorsFlag = createAppSelector(
+    [selectHardwareDetailGroupQuery],
+    (state) => state.isError
+);
+
+/**
+ * Selects the device name
+ */
+const selectDeviceName = createAppSelector(
+    [selectDevice],
+    (device: HardwareDetailGroupResponse | null): string | null =>
+        device?.data.modelName || null
+);
+```
+
+### Testing Selectors
+
+Testing selectors differed due to the changes in implementation.
+
+```typescript
+describe("selectOptionsLoadingFlag", () => {
+    it("should return true if some are loading", () => {
+        const mockedState: RootState = {
+            [appSlice.name]: {
+                salesChannel: SALESCHANNEL_CONSUMER as SalesChannel,
+            },
+            [gladosApi.reducerPath]: {
+                queries: {
+                    [`${getHardwareDetailGroup.name}(${JSON.stringify({
+                        salesChannel: SALESCHANNEL_CONSUMER,
+                    })})`]: {
+                        status: QueryStatus.pending,
+                    },
+                },
+            },
+        } as RootState;
+        expect(selectOptionsLoadingFlag(mockedState)).toEqual(true);
+    });
+});
+
+describe("selectDeviceName", () => {
+    it("should return null when device payload is null", () => {
+        const mockedState: RootState = {
+            [appSlice.name]: {
+                salesChannel: SALESCHANNEL_CONSUMER as SalesChannel,
+            },
+            [gladosApi.reducerPath]: {
+                queries: {
+                    [`${getHardwareDetailGroup.name}(${JSON.stringify({
+                        salesChannel: SALESCHANNEL_CONSUMER,
+                    })})`]: {
+                        status: QueryStatus.fulfilled,
+                        data: null,
+                    },
+                },
+            },
+        } as RootState;
+        expect(selectDeviceName(mockedState)).toBeNull();
+    });
+
+    it("should return device name", () => {
+        const deviceName = "Test Device";
+        const mockedState: RootState = {
+            [appSlice.name]: {
+                salesChannel: SALESCHANNEL_CONSUMER as SalesChannel,
+            },
+            [gladosApi.reducerPath]: {
+                queries: {
+                    [`${getHardwareDetailGroup.name}(${JSON.stringify({
+                        salesChannel: SALESCHANNEL_CONSUMER,
+                    })})`]: {
+                        status: QueryStatus.fulfilled,
+                        data: {
+                            data: {
+                                modelName: deviceName,
+                            },
+                        },
+                    },
+                },
+            },
+        } as RootState;
+        expect(selectDeviceName(mockedState)).toBe(deviceName);
+    });
+});
+```
+
+In the next section we will go through: how we applied the new components architecture?
+
+After that we will discuss the other testing implementations for the `slice.ts` and
+`listeners.ts` files, <br/>
+and Finally the reviews techniques we used in the final section of the documentation.

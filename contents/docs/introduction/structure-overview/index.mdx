@@ -101,9 +101,9 @@ This section compares the code structure before and after migrating from Redux S
 
 ## Data Flow Changes
 
-<div className="flex gab-4">
-<Mermaid
-    chart={`
+<div>
+    <Mermaid
+        chart={`
 graph TD
     subgraph "Redux Saga Flow"
     A1[Component] -->|Dispatch| B1[Action]
@@ -112,12 +112,7 @@ graph TD
     D1 -->|Updates| E1[Store]
     E1 -->|Notifies| A1
     end
-`}
-/>
-
-<Mermaid
-    chart={`
-graph TD
+    A1 -.->|Migration| A2
     subgraph "Redux Toolkit Flow"
     A2[Component] -->|Dispatch| B2[Action]
     B2 -->|Handled by| C2[Slice/ExtraReducers]
@@ -126,7 +121,7 @@ graph TD
     E2 -->|Notifies| A2
     end
 `}
-/>
+    />
 </div>
 
 ## Benefits of the New Structure
@@ -152,7 +147,7 @@ graph TD
 
 ## Migration Considerations
 
-<Note title="Important" type="warning">
+<Note title="Important">
     When migrating to the new structure: - Move API configurations to a separate isolated api folder - Reorganize features into the features directory - Convert sagas to
     listeners - Update selector implementations to use createAppSelector
 </Note>

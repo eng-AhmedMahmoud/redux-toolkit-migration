@@ -1,28 +1,145 @@
 ---
 title: API Migration Guide
-description: A comprehensive guide for migrating to the new API implementation
+description: A comprehensive guide that covers the migration process to the new API implementation.
 ---
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 
-This guide covers the migration process to the new API implementation, focusing on two main aspects:
-<br/><br/> 1 -> forming the API <br/>  2 -> using it in your application.
+focusing on two main aspects:
+1. **Forming the API** &nbsp;&nbsp;&nbsp;&nbsp; 2.&nbsp; **Using the API**
 
 ## Forming the API
 
 <Tabs defaultValue="old" className="pt-5 pb-1">
   <TabsList>
-    <TabsTrigger value="old">Previous Implementation</TabsTrigger>
+    <TabsTrigger value="old">Old Implementation</TabsTrigger>
     <TabsTrigger value="new">New Implementation (glados.ts)</TabsTrigger>
   </TabsList>
   <TabsContent value="old">
 ```typescript
-// Previous API implementation will be compared here
+/** 
+ * Get device from Glados 
+ */
+export function* getDeviceSaga(): Generator<StrictEffect> {
+  const hardwareService = GladosServiceFactory.getHardwareService();
+
+  // Collecting data to make the api request
+
+  try {
+    const response = (yield call([hardwareService, hardwareService.getHardwareDetailGroup], 'v1', params)) as Awaited<ReturnType<typeof hardwareService.getHardwareDetailGroup>>;
+    const { data } = response;
+    // Side effects handled by listeners
+  } catch (error: any) {
+    // Side effects handled by listeners
+  }
+}
+
+/** 
+ * Get subscription from Glados 
+ */
+export function* getSubscriptionsSaga(): Generator<StrictEffect> {
+  const tariffService = GladosServiceFactory.getTariffService();
+
+  // Collecting data to make the api request
+
+  try {
+    const response = (yield call([tariffService, tariffService.getTariffWithHardware], 'v1', params)) as Awaited<ReturnType<typeof tariffService.getTariffWithHardware<RedTariff | YoungTariff>>>;
+    const { data } = response;
+    // Side effects handled by listeners
+  } catch (error) {
+    // Side effects handled by listeners
+  }
+}
 ```
   </TabsContent>
   <TabsContent value="new">
 ```typescript
-// New glados.ts implementation will be added here
+// New isolated API
+export const gladosApi = createApi({
+  reducerPath: 'Glados',
+  baseQuery: fakeBaseQuery(),
+  endpoints: build => ({
+    getHardwareDetailGroup: build.query<HardwareDetailGroupResponse, GetHardwareDetailGroupQueryArgs>({
+      queryFn: async (arg, api) => {
+        const { salesChannel } = arg;
+        const hardwareService = GladosServiceFactory.getHardwareService();
+
+        /* dev-only-code:start */
+        hardwareService.setMocking(!!getQueryParam('useMockedApi'));
+        /* dev-only-code:end */
+        const state = api.getState() as RootState;
+        const deviceId = selectDeviceId(state);
+        const subscriptionIds = getSubscriptionIdsFromCms(salesChannel);
+
+        const params: HardwareDetailGroupParams = {
+          btx: API_BTX_VVL,
+          salesChannel: [MAP_SALESCHANNEL_TO_API_SALESCHANNEL[salesChannel]],
+          groupId: deviceId!,
+          discountIds: [],
+          tariffIds: subscriptionIds,
+        };
+
+        try {
+          const response = await hardwareService.getHardwareDetailGroup('v1', params);
+          return { data: response.data };
+        } catch (error) {
+          return {
+            error: miniSerializeError(error),
+          };
+        }
+      },
+    }),
+    getTariffWithHardware: build.query<TariffWithHardwareResponse, GetTariffWithHardwareQueryArgs>({
+      queryFn: async (arg, api) => {
+        const { salesChannel, isTradeIn } = arg;
+        const tariffService = GladosServiceFactory.getTariffService();
+
+        /* dev-only-code:start */
+        tariffService.setMocking(!!getQueryParam('useMockedApi'));
+        /* dev-only-code:end */
+        const state = api.getState() as RootState;
+        const deviceId = selectDeviceId(state);
+        const atomicDevices = selectAtomicDevices(state);
+        const subscriptionIds = getSubscriptionIdsFromCms(salesChannel);
+        const isGigakombiEligible = selectIsGigakombiEligible(state);
+        const gigakombiType = selectGigakombiType(state);
+        const isTauschbonus = selectIsTauschbonus(state);
+        const allDiscountsOptions: GetAllDiscountsOptions = {
+          salesChannel,
+          deviceId,
+          subscriptionIds,
+          isGigakombi: isGigakombiEligible && !!gigakombiType,
+          gigakombiType: gigakombiType || undefined,
+          isTradeIn,
+          isTauschbonus,
+          isRestlaufzeit: false,
+        };
+        const discountsIds = getAllDiscounts(allDiscountsOptions);
+        const params: TariffWithHardwareParams = {
+          btx: API_BTX_VVL,
+          salesChannel: [MAP_SALESCHANNEL_TO_API_SALESCHANNEL[salesChannel as SalesChannel]],
+          discountIds: isTradeIn && isTauschbonus ? [...discountsIds, '10439'] : discountsIds,
+          tariffIds: subscriptionIds,
+          atomicIds: atomicDevices.map(atomic => atomic.hardwareId),
+        };
+
+        try {
+          const response = await tariffService.getTariffWithHardware('v1', params);
+          return { data: response.data };
+        } catch (error) {
+          return {
+            error: miniSerializeError(error),
+          };
+        }
+      },
+    }),
+  }),
+});
+
+export const {
+  getHardwareDetailGroup,
+  getTariffWithHardware,
+} = gladosApi.endpoints;
 ```
   </TabsContent>
 </Tabs>
@@ -33,21 +150,28 @@ This guide covers the migration process to the new API implementation, focusing 
 
 The new API can be used with selectors to dynamically update state. Here's how to implement selectors with the API:
 
-<Tabs defaultValue="selector" className="pt-5 pb-1">
+<Tabs defaultValue="new-api" className="pt-5 pb-1">
   <TabsList>
-    <TabsTrigger value="selector">Selector Implementation</TabsTrigger>
+    <TabsTrigger value="new-api">New API Selectors</TabsTrigger>
+    <TabsTrigger value="example">Example Usage</TabsTrigger>
   </TabsList>
-  <TabsContent value="selector">
+  <TabsContent value="new-api">
 ```typescript
+/**
+ * Selects the HardwareDetailGroup query selector
+ */
 const createHardwareDetailGroupSelector = createAppSelector(
   [
     state => state.vvlDeviceDetailsApp.salesChannel,
   ],
-  salesChannel => getHardwareDetailGroup.select({ 
-    salesChannel: salesChannel!, 
+  salesChannel => getHardwareDetailGroup.select({
+    salesChannel: salesChannel!,
   }),
 );
 
+/**
+ * Selects the HardwareDetailGroup query
+ */
 const selectHardwareDetailGroupQuery = createAppSelector(
   [
     state => state,
@@ -56,6 +180,9 @@ const selectHardwareDetailGroupQuery = createAppSelector(
   (state, selector) => selector(state),
 );
 
+/**
+ * Selects the full device
+ */
 const selectDevice = createAppSelector(
   [
     selectHardwareDetailGroupQuery,
@@ -63,6 +190,15 @@ const selectDevice = createAppSelector(
   query => query?.data || null,
 );
 
+```
+  </TabsContent>
+  <TabsContent value="example">
+```typescript
+// Using selectHardwareDetailGroupQuery & selectDevice in other selectors
+
+/**
+ * Selects error state directly from the state
+ */
 const selectOptionsLoadingFlag = createAppSelector(
   [
     selectHardwareDetailGroupQuery,
@@ -70,6 +206,9 @@ const selectOptionsLoadingFlag = createAppSelector(
   state => state.isLoading,
 );
 
+/**
+ * Selects error state directly from the state
+ */
 const selectOptionsErrorsFlag = createAppSelector(
   [
     selectHardwareDetailGroupQuery,
@@ -77,14 +216,38 @@ const selectOptionsErrorsFlag = createAppSelector(
   state => state.isError,
 );
 
+/**
+ * Selects the device name
+ */
 const selectDeviceName = createAppSelector(
   [selectDevice],
   (device: HardwareDetailGroupResponse | null): string | null => 
     device?.data.modelName || null,
 );
+
+
+// Using selectors in the app code
+
+  // Get the device details
+  const device = selectDevice(state);
+  
+  // Get the device name
+  const deviceName = selectDeviceName(state);
+  
+  // Get loading and error states
+  const isLoading = useSelector(selectOptionsLoadingFlag);
+  const hasError = useSelector(selectOptionsErrorsFlag);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (hasError) {
+    return <div>Error loading device details</div>;
+  }
+
 ```
   </TabsContent>
- 
 </Tabs>
 
 ### In Listeners
@@ -100,10 +263,8 @@ Listeners are used to perform side effects in response to API actions:
 setDefaultState: () => startAppListening({
   actionCreator: setDefaultState,
   effect: (_action, listenerApi) => {
-    const state = listenerApi.getState();
-    const deviceId = selectDeviceId(state);
-    const salesChannel = selectSalesChannel(state) as SalesChannel;
-    
+    // rest of the side effects
+
     deviceId 
       ? listenerApi.dispatch(getHardwareDetailGroup.initiate({ salesChannel }))
       : redirectToDop();
@@ -113,15 +274,8 @@ setDefaultState: () => startAppListening({
 getDeviceFulfilled: () => startAppListening({
   matcher: getHardwareDetailGroup.matchFulfilled,
   effect: (_action, listenerApi) => {
-    const state = listenerApi.getState();
-    const atomicId = selectAtomicId(state);
-    listenerApi.dispatch(setAtomicId({ atomicId }));
-    
-    const salesChannel = selectSalesChannel(state) as SalesChannel;
-    const isTradeIn = selectIsTradeIn(state);
-    const devicePayload = _action.payload;
-    
-    listenerApi.dispatch(setDevicePayload(devicePayload));
+    // rest of the side effects
+
     listenerApi.dispatch(getTariffWithHardware.initiate({ 
       salesChannel, 
       isTradeIn 

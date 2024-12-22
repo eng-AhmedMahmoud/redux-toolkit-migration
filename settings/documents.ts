@@ -43,16 +43,6 @@ export const Documents: Paths[] = [
       {
         title: "Components Separation",
         href: "/components-separation",
-        items: [
-          {
-            title: "Standalone Component",
-            href: "/standalone-component",
-          },
-          {
-            title: "Shared Components",
-            href: "/shared-components",
-          },
-        ],
       },
       {
         title: "Code Reviewing & Testing",
