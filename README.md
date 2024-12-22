@@ -1,318 +1,46 @@
 ## Redux Toolkit Migration
 
--new api selectors
-/\*\*
+saga
 
--   Selects the HardwareDetailGroup query selector
-    \*/
-    const createHardwareDetailGroupSelector = createAppSelector(
-    [
-    state => state.vvlDeviceDetailsApp.salesChannel,
-    ],
-    salesChannel => getHardwareDetailGroup.select({
-    salesChannel: salesChannel!,
-    }),
-    );
-
-/\*\*
-
--   Selects the HardwareDetailGroup query
-    \*/
-    const selectHardwareDetailGroupQuery = createAppSelector(
-    [
-    state => state,
-    createHardwareDetailGroupSelector,
-    ],
-    (state, selector) => selector(state),
-    );
-
-/\*\*
-
--   Selects the full device
-    \*/
-    const selectDevice = createAppSelector(
-    [
-    selectHardwareDetailGroupQuery,
-    ],
-    query => query?.data || null,
-    );
-
--example usage
-/\*\*
-
--   Selects error state directly from the state
-    \*/
-    const selectOptionsLoadingFlag = createAppSelector(
-    [
-    selectHardwareDetailGroupQuery,
-    ],
-    state => state.isLoading,
-    );
-
-/\*\*
-
--   Selects error state directly from the state
-    \*/
-    const selectOptionsErrorsFlag = createAppSelector(
-    [
-    selectHardwareDetailGroupQuery,
-    ],
-    state => state.isError,
-    );
-
-/\*\*
-
--   Selects the device name
-    \*/
-    const selectDeviceName = createAppSelector(
-    [selectDevice],
-    (device: HardwareDetailGroupResponse | null): string | null => device?.data.modelName || null,
-    );
-
--new isolated api
-export const gladosApi = createApi({
-reducerPath: 'Glados',
-baseQuery: fakeBaseQuery(),
-endpoints: build => ({
-getHardwareDetailGroup: build.query< HardwareDetailGroupResponse, GetHardwareDetailGroupQueryArgs>({
-queryFn: async (arg, api) => {
-const { salesChannel } = arg;
-const hardwareService = GladosServiceFactory.getHardwareService();
-
-                /* dev-only-code:start */
-                hardwareService.setMocking(!!getQueryParam('useMockedApi'));
-                /* dev-only-code:end */
-                const state = api.getState() as RootState;
-
-                const deviceId = selectDeviceId(state);
-
-                const subscriptionIds = getSubscriptionIdsFromCms(salesChannel);
-
-                const params: HardwareDetailGroupParams = {
-                    btx: API_BTX_VVL,
-                    salesChannel: [MAP_SALESCHANNEL_TO_API_SALESCHANNEL[salesChannel]],
-                    groupId: deviceId!,
-                    discountIds: [],
-                    tariffIds: subscriptionIds,
-                };
-
-                try {
-                    const response = await hardwareService.getHardwareDetailGroup('v1', params);
-
-                    return { data: response.data };
-                }
-                catch (error) {
-
-                    return {
-                        error: miniSerializeError(error),
-                    };
-                }
-            },
-        }),
-        getTariffWithHardware: build.query<TariffWithHardwareResponse, GetTariffWithHardwareQueryArgs>({
-            queryFn: async (arg, api) => {
-                const { salesChannel, isTradeIn } = arg;
-                const tariffService = GladosServiceFactory.getTariffService();
-
-                /* dev-only-code:start */
-                tariffService.setMocking(!!getQueryParam('useMockedApi'));
-                /* dev-only-code:end */
-                const state = api.getState() as RootState;
-                const deviceId = selectDeviceId(state);
-                const atomicDevices = selectAtomicDevices(state);
-                const subscriptionIds = getSubscriptionIdsFromCms(salesChannel);
-                const isGigakombiEligible = selectIsGigakombiEligible(state);
-                const gigakombiType = selectGigakombiType(state);
-                const isTauschbonus = selectIsTauschbonus(state);
-                const allDiscountsOptions: GetAllDiscountsOptions = {
-                    salesChannel,
-                    deviceId,
-                    subscriptionIds,
-                    isGigakombi: isGigakombiEligible && !!gigakombiType,
-                    gigakombiType: gigakombiType || undefined,
-                    isTradeIn,
-                    isTauschbonus,
-                    isRestlaufzeit: false,
-                };
-                const discountsIds = getAllDiscounts(allDiscountsOptions);
-                const params: TariffWithHardwareParams = {
-                    btx: API_BTX_VVL,
-                    salesChannel: [MAP_SALESCHANNEL_TO_API_SALESCHANNEL[salesChannel as SalesChannel]],
-                    // @TODO check that the fist call when trade in device selected the discounts get reflected in the offerSummaryCard,
-                    discountIds: isTradeIn && isTauschbonus ? [...discountsIds, '10439'] : discountsIds,
-                    tariffIds: subscriptionIds,
-                    atomicIds: atomicDevices.map(atomic => atomic.hardwareId),
-                };
-
-                try {
-                    const response = await tariffService.getTariffWithHardware('v1', params);
-
-                    return { data: response.data };
-                }
-                catch (error) {
-                    return {
-                        error: miniSerializeError(error),
-                    };
-                }
-            },
-        }),
-    }),
-
-});
-
-export const {
-getHardwareDetailGroup,
-getTariffWithHardware,
-} = gladosApi.endpoints;
-
--old shattered api
-/\*\*
-
--   Get device from Glados
-    _/
-    export function_ getDeviceSaga (): Generator<StrictEffect> {
+/**
+ * Get device from Glados
+ */
+export function* getDeviceSaga (): Generator<StrictEffect> {
     const hardwareService = GladosServiceFactory.getHardwareService();
 
-        /* dev-only-code:start */
-        hardwareService.setMocking(!!getQueryParam('useMockedApi'));
-        /* dev-only-code:end */
+    // Collecting data to make the api request
 
-        const [
-            salesChannel,
-            deviceId,
-        ] = (yield all([
-            select(selectSalesChannel()),
-            select(selectDeviceId()),
-        ])) as [
-            NonNullable<SelectorReturnType<typeof selectSalesChannel>>,
-            NonNullable<SelectorReturnType<typeof selectDeviceId>>,
-        ];
+    try {
+        const response =
+        (yield call([hardwareService, hardwareService.getHardwareDetailGroup], 'v1', params)) as
+            Awaited<ReturnType<typeof hardwareService.getHardwareDetailGroup>>;
+        const { data } = response;
 
-        const subscriptionIds = getSubscriptionIdsFromCms(salesChannel);
-
-        const params: HardwareDetailGroupParams = {
-            btx: API_BTX_VVL,
-            salesChannel: [MAP_SALESCHANNEL_TO_API_SALESCHANNEL[salesChannel as SalesChannel]],
-            groupId: deviceId!,
-            discountIds: [],
-            tariffIds: subscriptionIds,
-        };
-
-        try {
-            const response =
-            (yield call([hardwareService, hardwareService.getHardwareDetailGroup], 'v1', params)) as
-                Awaited<ReturnType<typeof hardwareService.getHardwareDetailGroup>>;
-            const { data } = response;
-
-            yield put(getDeviceSuccess(data));
-        }
-        catch (error: any) {
-            // eslint-disable-next-line no-console
-            yield call([console, 'error'], error);
-
-            const { response } = error;
-
-            if (response && response.status === 404) {
-                yield call(redirectToDop);
-            }
-            else {
-                yield put(getDeviceFailed());
-            }
-        }
-
+        yield put(getDeviceSuccess(data));
     }
+    catch (error: any) {
+        // eslint-disable-next-line no-console
+        yield call([console, 'error'], error);
 
-// and for the tariff api
+        const { response } = error;
 
-/\*\*
-
--   Get subscription from Glados
-    _/
-    export function_ getSubscriptionsSaga (): Generator<StrictEffect> {
-    const tariffService = GladosServiceFactory.getTariffService();
-
-        /* dev-only-code:start */
-        tariffService.setMocking(!!getQueryParam('useMockedApi'));
-        /* dev-only-code:end */
-
-        const [
-            deviceId,
-            salesChannel,
-            atomicDevices,
-            gigakombiType,
-            isGigakombiEligible,
-            subscriptionId,
-            isTradeIn,
-            isTauschbonus,
-        ] = (yield all([
-            select(selectDeviceId()),
-            select(selectSalesChannel()),
-            select(selectAtomicDevices()),
-            select(selectGigakombiType()),
-            select(selectIsGigakombiEligible()),
-            select(selectSubscriptionId()),
-            select(selectIsTradeIn()),
-            select(selectIsTauschbonus()),
-        ])) as [
-                NonNullable<SelectorReturnType<typeof selectDeviceId>>,
-                NonNullable<SelectorReturnType<typeof selectSalesChannel>>,
-                NonNullable<SelectorReturnType<typeof selectAtomicDevices>>,
-                NonNullable<SelectorReturnType<typeof selectGigakombiType>>,
-                NonNullable<SelectorReturnType<typeof selectIsGigakombiEligible>>,
-                NonNullable<SelectorReturnType<typeof selectSubscriptionId>>,
-                NonNullable<SelectorReturnType<typeof selectIsTradeIn>>,
-                NonNullable<SelectorReturnType<typeof selectIsTauschbonus>>,
-            ];
-
-        const subscriptionIds = (yield call(getSubscriptionIdsFromCms, salesChannel as SalesChannel)) as ReturnType<typeof getSubscriptionIdsFromCms>;
-
-        const allDiscountsOptions: GetAllDiscountsOptions = {
-            salesChannel,
-            deviceId,
-            subscriptionIds,
-            isGigakombi: isGigakombiEligible && !!gigakombiType,
-            gigakombiType,
-            isTradeIn,
-            isTauschbonus,
-            isRestlaufzeit: false,
-        };
-
-        // @todo check the discount logic especially with GigaKombi (Logic was at getRequestBody func)
-        const params: TariffWithHardwareParams = {
-            btx: API_BTX_VVL,
-            salesChannel: [MAP_SALESCHANNEL_TO_API_SALESCHANNEL[salesChannel as SalesChannel]],
-            discountIds: getAllDiscounts(allDiscountsOptions),
-            tariffIds: subscriptionIds,
-            atomicIds: atomicDevices?.map(atomic => atomic.hardwareId) || [],
-        };
-
-        try {
-            const response =
-                (yield call([tariffService, tariffService.getTariffWithHardware], 'v1', params)) as
-                    Awaited<ReturnType<typeof tariffService.getTariffWithHardware<RedTariff | YoungTariff>>>;
-            const { data } = response;
-
-            yield put(getSubscriptionsSuccess(data));
-            yield call(createTrackingData);
-
-            const offers = (yield select(selectActiveOffers())) as
-                NonNullable<SelectorReturnType<typeof selectActiveOffers>>;
-
-            if (!checkSubscriptionIdExistsInSubscriptions(subscriptionId, offers)) {
-
-                yield put(setSubscriptionId(offers[offers.length - 1].virtualItemId as RedTariff | YoungTariff));
-            }
+        if (response && response.status === 404) {
+            yield call(redirectToDop);
         }
-        catch (error) {
-            // eslint-disable-next-line no-console
-            yield call([console, 'error'], error);
-
-            if (error instanceof Error) {
-                yield put(getSubscriptionsFailed());
-            }
+        else {
+            yield put(getDeviceFailed());
         }
-
     }
+}
+
+/**
+ * Get device success saga
+ */
+export function* getDeviceSuccessSaga (): Generator<StrictEffect> {
+    const atomicId = (yield select(selectAtomicId())) as SelectorReturnType<typeof selectAtomicId>;
+    yield put(setAtomicId(atomicId!));
+    yield put(getSubscriptions());
+}
 
 listeners
 
