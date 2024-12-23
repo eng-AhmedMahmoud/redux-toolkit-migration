@@ -45,7 +45,7 @@ export const Documents: Paths[] = [
         href: "/components-separation",
       },
       {
-        title: "Code Reviewing & Testing",
+        title: "Code Testing and Reviewing",
         href: "/code-testing",
       },
     ],

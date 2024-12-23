@@ -1,26 +1,194 @@
 ---
-title: Table
-description: This section provides an overview of Introduction.
+title: Code Testing and Reviewing
+description: This section provides an overview of testing and reviewing the migrated code.
 ---
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam iste dolorum tempore consectetur explicabo tempora provident quia maxime, molestiae, facilis aperiam et, error illum vel ullam? Quis architecto dolore ullam
+## Code Testing
 
-| Syntax        | Description |   Test Text |
-| :------------ | :---------: | ----------: |
-| Header        |    Title    | Here's this |
-| Paragraph     |    Text     |    And more |
-| Strikethrough |             |    ~~Text~~ |
+### selectors.ts
 
+Already explained in detail in the Updating the Selectors section.
 
-| Feature     | Documentation Link | Notes                  |
-| :---------- | :----------------: | ----------------------: |
-| **Feature A**| [Docs](#)           | For more info click here |
-| **Feature B**| [Guide](#)          | See the full guide here  |
-| **Feature C**| [Setup](#)          | Setup instructions       |
+### listeners.test.ts
+
+This code contains sample tests from listeners.test.ts file.
+
+```typescript
+// sample test of how we tested the listeners
+
+describe('getDeviceFulfilled listener', () => {
+    let unsubscribe: UnsubscribeListener;
+
+    beforeAll(() => {
+        unsubscribe = listeners.getDeviceFulfilled();
+    });
+
+    afterAll(() => {
+        unsubscribe();
+    });
+
+    it('should dispatch setAtomicId, setDevicePayload and initiate getTariffWithHardware', () => {
+        // Mock selectors
+        jest.spyOn(deviceSelectors, 'selectAtomicId').mockReturnValue('atomic123');
+        jest.spyOn(appSelectors, 'selectSalesChannel').mockReturnValue(SALESCHANNEL_CONSUMER);
+        jest.spyOn(appSelectors, 'selectIsTradeIn').mockReturnValue(false);
+
+        const mockDevicePayload: HardwareDetailGroupResponse = {
+            data: {
+                modelName: 'Test Phone',
+                virtualItemId: 'test-id',
+                legacyGroupId: 'legacy-id',
+                promotionAttribute: { cellular: Cellular.FiveG },
+                url: { hubpage: { href: 'test-url' }, galleryImage: { href: 'test-image' } },
+                colors: [],
+                capacities: [],
+                atomics: [],
+                attributeGroups: [],
+            },
+        };
+
+        const dispatchMock = jest.fn();
+        const getStateMock = jest.fn();
+        const mockState = {};
+
+        listener.middleware({
+            dispatch: dispatchMock,
+            getState: getStateMock.mockReturnValue(mockState),
+        })(() => (action: any) => action)({
+            type: `${gladosApi.reducerPath}/executeQuery/fulfilled`,
+            payload: mockDevicePayload,
+            meta: {
+                arg: {
+                    endpointName: getHardwareDetailGroup.name,
+                },
+            },
+        });
+
+        expect(dispatchMock).toHaveBeenCalledWith(setAtomicId({ atomicId: 'atomic123' }));
+        expect(dispatchMock).toHaveBeenCalledWith(setDevicePayload(mockDevicePayload));
+        expect(dispatchMock).toHaveBeenCalledWith(expect.any(Function));
+    });
+
+    it('should handle different salesChannel and tradeIn values', () => {
+        // Mock selectors with different values
+        jest.spyOn(deviceSelectors, 'selectAtomicId').mockReturnValue('atomic456');
+        jest.spyOn(appSelectors, 'selectSalesChannel').mockReturnValue(SALESCHANNEL_YOUNG);
+        jest.spyOn(appSelectors, 'selectIsTradeIn').mockReturnValue(true);
+
+        const mockDevicePayload: HardwareDetailGroupResponse = {
+            data: {
+                modelName: 'Test Phone2',
+                virtualItemId: 'test-id',
+                legacyGroupId: 'legacy-id',
+                promotionAttribute: { cellular: Cellular.FiveG },
+                url: { hubpage: { href: 'test-url' }, galleryImage: { href: 'test-image' } },
+                colors: [],
+                capacities: [],
+                atomics: [],
+                attributeGroups: [],
+            },
+        };
+
+        const dispatchMock = jest.fn();
+        const getStateMock = jest.fn();
+        const mockState = {};
+
+        listener.middleware({
+            dispatch: dispatchMock,
+            getState: getStateMock.mockReturnValue(mockState),
+        })(() => (action: any) => action)({
+            type: `${gladosApi.reducerPath}/executeQuery/fulfilled`,
+            payload: mockDevicePayload,
+            meta: {
+                arg: {
+                    endpointName: getHardwareDetailGroup.name,
+                },
+            },
+        });
+
+        expect(dispatchMock).toHaveBeenCalledWith(setAtomicId({ atomicId: 'atomic456' }));
+        expect(dispatchMock).toHaveBeenCalledWith(setDevicePayload(mockDevicePayload));
+        expect(dispatchMock).toHaveBeenCalledWith(expect.any(Function));
+    });
+});
+```
+
+### slice.test.ts
+
+This code contains sample tests from slice.test.ts file.
+
+```typescript
+// sample test of how we tested the slices
+
+// Divided into 2 main tests (Actions, Reducers)
+describe('VVL Device Details Options Slice', () => {
+    describe('Actions', () => {
+        describe('setDefaultState', () => {
+            it('should return the correct type', () => {
+                const fixture = '123';
+                const expected = {
+                    type: expect.any(String),
+                    payload: fixture,
+                };
+
+                expect(setDefaultState(fixture)).toEqual(expected);
+            });
+        });
+    });
+
+    describe('Reducer', () => {
+        it('should handle the setDefaultState action correctly', () => {
+            const atomicId = '1234';
+
+            const expected = produce(optionsSlice.getInitialState(), draft => {
+                draft.atomicId = atomicId;
+            });
+            expect(optionsSlice.reducer(optionsSlice.getInitialState(), setDefaultState(atomicId))).toEqual(expected);
+        });
+    });
+});
+```
+
+### Summary
+
+These three files (listeners.test.ts, slice.test.ts, and selectors.test.ts) represent the primary test cases for the application alongside the helpers test files, ensuring functionality is covered across core features and functionalities.
+
+## Code Reviewing
+
+### Strategy and Schedule
+
+- The review process was organized into daily sessions.
+- Each team member reviewed their assigned part of the migration code.
+- Daily Routine:
+  - 10:00 a.m. to 2:00 p.m.: Reviewing code.
+  - 2:00 p.m. to 6:00 p.m.: Addressing comments and refining code.
+- PR Workflow:
+  - Initially, all team members contributed to a single, large pull request (PR) after ensuring their respective migrations were fully tested and functional.
+  - Any new errors or failed test cases discovered during the review were resolved by creating separate PRs. These fixes were tested, reviewed, and merged back into the main branch.
+
+### Visual Representation
+
+Include a schedule or table summarizing the parts of the migration each team member reviewed and worked on daily during the reviewing period.
+
+| **Task**       | **Day 1**         | **Day 2**         | **Day 3**         |
+|----------------|-------------------|-------------------|-------------------|
+| **App Slice**  | Mayada/Sayed      | Mona              | Osama             |
+| **Option Slice** | Nour             | Osama             | Mayada/Sayed      |
+| **Tradein**    | Ahmed             | Nour              | Mona              |
+| **Tariff**     | Osama             | Mayada/Sayed      | Ahmed             |
+| **Overlay**    | Mona              | Ahmed             | Nour              |
+| **Glados**     | Mona              |                   | Osama             |
+
+## Thank You 
+
+Thank you for reading till the end 🙏
+
+<iframe src="https://lottie.host/embed/18b22dc4-a853-46e6-b09d-f4b58bd4b7ce/IaF42U6DgF.lottie" className="w-full" height="400px bg-none"></iframe>
 
 ## Additional Resources
 
 1. [Redux Toolkit KT](https://vodafone-my.sharepoint.com/personal/eman_mohamed7_vodafone_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Feman%5Fmohamed7%5Fvodafone%5Fcom%2FDocuments%2FRecordings%2FRedux%20Toolkit%20KT%2D20241124%5F130232%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Ecff32109%2D12b2%2D43b9%2Da74e%2D7b1fb6d29ab9)
 2. [Redux Toolkit in Action](https://vodafone-my.sharepoint.com/personal/mayada_ghanem_vodafone_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fmayada%5Fghanem%5Fvodafone%5Fcom%2FDocuments%2FRecordings%2FReduxToolkit%2D20241104%5F150308%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2E38fac959%2Dfe7d%2D423b%2Dab63%2D200d0a318119)
 
-For a deeper understanding of Redux Toolkit and its implementation, we recommend these resources as it provides valuable insights and practical examples to help you master Redux Toolkit  created with love by Kilo team ❤️.
+For a deeper understanding of Redux Toolkit and its implementation, we recommend these resources as they provide valuable insights and practical examples to help you master Redux Toolkit. Created with love by Kilo team ❤️.
+
