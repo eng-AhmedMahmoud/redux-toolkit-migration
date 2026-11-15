@@ -1,4 +1,4 @@
-export const url = "https://redux-toolkit-migeration.vercel.app/";
+export const url = "https://redux-toolkit-migration.devya.dev/";
 export const siteicon = "/images/iconLight.png";
 export const siteiconDark = "/images/iconDark.png";
 
@@ -13,7 +13,7 @@ export const imagealt = "Redux Toolkit Migeration Documentation";
 export const twitterhandle = "@JScodingMaster";
 
 export const companyname = "Ahmed Mahmoud";
-export const companylink = "https://eng-ahmedmahmoud-portfolio.vercel.app/";
+export const companylink = "https://eng-ahmed.com/";
 
 export const branding = true;
 export const rightsidebar = true;

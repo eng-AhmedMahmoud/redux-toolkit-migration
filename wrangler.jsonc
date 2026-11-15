@@ -1,0 +1,11 @@
+// https://redux-toolkit-migration.devya.dev as a static-assets Worker (no script).
+// Serves the Next static export in out/; unknown paths get out/404.html with a 404.
+// The default html_handling serves /docs/x.html at /docs/x, as Vercel did.
+// Deploy: `bash scripts/deploy.sh`.
+{
+  "name": "redux-toolkit-migration",
+  "compatibility_date": "2026-11-15",
+  "workers_dev": false,
+  "routes": [{ "pattern": "redux-toolkit-migration.devya.dev", "custom_domain": true }],
+  "assets": { "directory": "out", "not_found_handling": "404-page" }
+}
