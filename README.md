@@ -39,3 +39,9 @@ This guide covers all key aspects of the migration process:
 We hope this Documentation makes your migration journey from Redux Saga to Redux Toolkit both enjoyable and successful. If you have suggestions or would like to contribute, feel free to reach out or create a pull request. 🚀
 
 `Happy coding! 😊`
+
+---
+
+## Hosting
+
+Static export (`output: 'export'` → `out/`) served by a static-assets Cloudflare Worker at https://redux-toolkit-migration.devya.dev (`wrangler.jsonc`). Deploy with `bash scripts/deploy.sh`; the merge gate is `bash scripts/ci-local.sh`. The old Vercel URL redirects here.
